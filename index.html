@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="국비지원 K-디지털 트레이닝 부트캠프 - 생성형 AI, 사이버 보안, 클라우드 과정" />
+  <meta name="og:title" content="국비 부트캠프 3트랙 - KDT" />
+  <meta name="og:description" content="무료 교육, 국비 지원, 실무 프로젝트로 7개월 완성" />
+  <title>국비 부트캠프 3트랙 | KDT</title>
+  <style>
+    :root {
+      --bg: #f5f6fa;
+      --paper: #ffffff;
+      --paper-2: #f8f9fb;
+      --ink: #171a20;
+      --ink-2: #4c5362;
+      --muted: #7c8597;
+      --line: #e7eaf0;
+      --accent: #5b57d1;
+      --accent-2: #2b2b7d;
+      --soft: #efeefc;
+      --success: #0e9384;
+      --success-soft: #e7f6f3;
+      --warning: #e8590c;
+      --warning-soft: #fff1e7;
+      --shadow: 0 20px 50px rgba(27, 32, 46, 0.08);
+      --radius: 18px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, var(--accent), #7c7ef4);
+      box-shadow: 0 0 0 5px rgba(91, 87, 209, 0.12);
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-btn,
+    .primary-btn,
+    .secondary-btn {
+      border-radius: 12px;
+      transition: 0.2s ease;
+      border: none;
+      background: none;
+    }
+
+    .theme-btn {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink-2);
+      font-size: 1.2rem;
+    }
+
+    .theme-btn:hover {
+      transform: translateY(-1px);
+      border-color: #cfd7e4;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 22px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+    }
+
+    .primary-btn {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 12px 25px rgba(91, 87, 209, 0.25);
+    }
+
+    .primary-btn:hover {
+      background: #4a49c1;
+      transform: translateY(-1px);
+    }
+
+    .secondary-btn {
+      background: var(--paper);
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    .secondary-btn:hover {
+      border-color: #bcc7d8;
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      background: linear-gradient(180deg, #f4f5f8 0%, #eef1f7 100%);
+      padding: 44px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 52px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--ink-2);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(91, 87, 209, 0.12);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+      font-weight: 900;
+    }
+
+    .hero h1 .accent {
+      color: var(--accent);
+    }
+
+    .lead {
+      max-width: 620px;
+      margin-top: 18px;
+      font-size: 1.05rem;
+      color: var(--ink-2);
+    }
+
+    .chip-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(91, 87, 209, 0.08);
+      color: var(--accent-2);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .hero-note {
+      margin-top: 14px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.86);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 26px 18px;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: rgba(91, 87, 209, 0.08);
+      color: var(--accent-2);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 24px 0 0;
+      position: relative;
+    }
+
+    .steps li {
+      position: relative;
+      padding-left: 42px;
+      margin-bottom: 18px;
+    }
+
+    .steps li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      border: 4px solid var(--accent);
+      box-shadow: 0 0 0 4px rgba(91, 87, 209, 0.04);
+    }
+
+    .steps li:last-child {
+      margin-bottom: 0;
+    }
+
+    .steps small {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .steps strong {
+      display: block;
+      font-size: 1.08rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 2px;
+    }
+
+    .steps p {
+      margin: 0;
+      color: var(--ink-2);
+      font-size: 0.82rem;
+    }
+
+    .card-footer {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .floating-words {
+      position: absolute;
+      right: -20px;
+      bottom: 10px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      opacity: 0.3;
+      transform: rotate(-4deg);
+      pointer-events: none;
+      user-select: none;
+      font-size: clamp(3rem, 8vw, 9rem);
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(91, 87, 209, 0.6);
+      font-family: "Arial Black", sans-serif;
+    }
+
+    .floating-words > span {
+      display: inline-block;
+      padding-right: 1em;
+      animation: marquee 28s linear infinite;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .section {
+      padding: 78px 0;
+    }
+
+    .gray {
+      background: var(--paper-2);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 26px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      letter-spacing: -0.05em;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .info-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(17,24,39,0.02);
+    }
+
+    .info-card dt {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .info-card dd {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .info-card small {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink-2);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .cost-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .cost-feature {
+      background: linear-gradient(135deg, rgba(91,87,209,0.12), rgba(91,87,209,0.02));
+      border: 1px solid rgba(91,87,209,0.12);
+      border-radius: 18px;
+      padding: 28px 24px;
+    }
+
+    .cost-feature small {
+      display: block;
+      color: var(--accent-2);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .cost-feature strong {
+      display: block;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.07em;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .cost-feature p {
+      margin: 0;
+      color: var(--ink-2);
+      font-weight: 600;
+    }
+
+    .cost-side {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px 24px;
+    }
+
+    .cost-side h3 {
+      margin: 0 0 18px;
+      font-size: 1.18rem;
+      letter-spacing: -0.04em;
+    }
+
+    .check-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .check-list li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--ink-2);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .cta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 22px;
+      padding: 24px 28px;
+      border-radius: 18px;
+      background: #121823;
+      color: white;
+    }
+
+    .cta-bar strong {
+      display: block;
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .cta-bar span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.84rem;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    .track-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .track-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(91, 87, 209, 0.15);
+      border-color: var(--accent);
+    }
+
+    .track-card.ai {
+      --track-color: var(--accent);
+      --track-soft: rgba(91,87,209,0.08);
+      --track-ink: #3732a8;
+    }
+
+    .track-card.security {
+      --track-color: var(--success);
+      --track-soft: rgba(14,147,132,0.08);
+      --track-ink: #0d7569;
+    }
+
+    .track-card.cloud {
+      --track-color: var(--warning);
+      --track-soft: rgba(232,89,12,0.08);
+      --track-ink: #b85112;
+    }
+
+    .track-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: var(--track-soft);
+      color: var(--track-ink);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .track-card h3 {
+      margin: 0;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      line-height: 1.25;
+      letter-spacing: -0.04em;
+    }
+
+    .track-card .kw {
+      font-weight: 800;
+      color: var(--track-ink);
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      margin-top: -6px;
+    }
+
+    .track-card p {
+      margin: 0;
+      color: var(--ink-2);
+      font-size: 0.92rem;
+    }
+
+    .track-card h4 {
+      margin: 0 0 8px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .track-card ul,
+    .track-card ol {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      color: var(--ink-2);
+      font-size: 0.92rem;
+    }
+
+    .track-card .btn-wrap {
+      margin-top: auto;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .benefit {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 26px 22px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .benefit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 16px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(91,87,209,0.08);
+      color: var(--accent);
+      font-size: 1.8rem;
+    }
+
+    .benefit strong {
+      display: block;
+      font-size: 1.05rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .benefit span {
+      color: var(--ink-2);
+      font-size: 0.86rem;
+    }
+
+    .steps-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .steps-4 > div {
+      padding: 24px 20px;
+      border-right: 1px solid var(--line);
+      min-height: 140px;
+    }
+
+    .steps-4 > div:last-child {
+      border-right: 0;
+    }
+
+    .steps-4 .no {
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .steps-4 strong {
+      display: block;
+      font-size: 1.04rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .steps-4 span {
+      display: block;
+      color: var(--ink-2);
+      font-size: 0.84rem;
+    }
+
+    .faq {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    details {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0 18px;
+      margin-bottom: 10px;
+      transition: all 0.2s ease;
+    }
+
+    details[open] {
+      background: rgba(91, 87, 209, 0.04);
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 0;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::before {
+      content: "Q";
+      color: var(--accent);
+      font-weight: 900;
+      margin-right: 8px;
+    }
+
+    summary::after {
+      content: "+";
+      color: var(--muted);
+      font-size: 1.4rem;
+      margin-left: auto;
+      transition: transform 0.2s ease;
+    }
+
+    details[open] summary::after {
+      content: "−";
+      transform: rotate(180deg);
+    }
+
+    .faq-content {
+      padding: 0 0 18px 32px;
+      color: var(--ink-2);
+      font-size: 0.94rem;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .final-cta {
+      text-align: center;
+      padding: 80px 0 56px;
+    }
+
+    .date-badge {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .date-badge .accent {
+      color: var(--accent);
+    }
+
+    .final-cta p {
+      margin: 0 auto 28px;
+      max-width: 680px;
+      color: var(--ink-2);
+      font-size: 1.02rem;
+    }
+
+    .final-cta .actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .bottom-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+      z-index: 70;
+    }
+
+    .bottom-bar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .bottom-text {
+      font-size: 0.92rem;
+      color: var(--ink-2);
+    }
+
+    .bottom-text strong {
+      color: var(--ink);
+    }
+
+    footer {
+      padding: 28px 0 110px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    body.dark-mode {
+      --bg: #0a0e14;
+      --paper: #121a24;
+      --paper-2: #0f1620;
+      --ink: #e8eef7;
+      --ink-2: #b5c3d6;
+      --muted: #8a96ac;
+      --line: #1f2937;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .cost-wrap,
+      .compare-grid,
+      .benefits,
+      .steps-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .steps-4 > div {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .steps-4 > div:last-child {
+        border-bottom: 0;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        height: 64px;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        width: 100%;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .cta-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .bottom-bar .container {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px 0;
+      }
+
+      .bottom-bar .primary-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#top" class="logo">
+        <span class="logo-mark"></span>
+        국비 부트캠프
+      </a>
+
+      <div class="controls">
+        <button class="theme-btn" type="button" aria-label="테마 전환" id="themeToggle">☀️</button>
+        <a href="https://naver.me/5QsBTPVV" class="primary-btn" target="_blank" rel="noreferrer">상담 신청</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="floating-words"><span>LLM RAG AI AGENT LANGCHAIN HUGGING FACE LLM RAG AI AGENT LANGCHAIN HUGGING FACE</span></div>
+
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">KDT 국비지원</div>
+          <h1>
+            AI를 쓰는 사람에서<br />
+            <span class="accent">만드는 사람</span>으로
+          </h1>
+          <p class="lead">
+            LLM 파인튜닝, RAG, AI Agent까지. 대기업 현직자 멘토링과 실무 프로젝트로 7개월 동안 생성형 AI 서비스 포트폴리오를 완성합니다.
+          </p>
+
+          <div class="chip-wrap">
+            <span class="chip">LLM 파인튜닝</span>
+            <span class="chip">RAG</span>
+            <span class="chip">AI Agent</span>
+            <span class="chip">LangChain</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="https://naver.me/5QsBTPVV" class="primary-btn" target="_blank" rel="noreferrer">무료상담 신청</a>
+            <a href="#compare" class="secondary-btn">세 과정 비교하기</a>
+          </div>
+
+          <div class="hero-note">네이버 폼 신청 후 교육 상담이 진행됩니다. ※ 세부 자격은 상담 시 최종 확인 필요</div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="card-head">
+            <span id="trackName">생성형 AI 과정</span>
+            <span class="badge">모집중</span>
+          </div>
+
+          <ol class="steps" id="trackSteps">
+            <li>
+              <small>STEP 1</small>
+              <strong>LLM 기초</strong>
+              <p>모델이 동작하는 원리부터 직접 다룹니다</p>
+            </li>
+            <li>
+              <small>STEP 2</small>
+              <strong>나만의 모델 만들기</strong>
+              <p>공개 모델을 내 데이터로 학습시키고 평가합니다</p>
+            </li>
+            <li>
+              <small>STEP 3</small>
+              <strong>AI 서비스 개발</strong>
+              <p>검색형 챗봇부터 AI 에이전트까지 만듭니다</p>
+            </li>
+            <li>
+              <small>STEP 4</small>
+              <strong>프로젝트 &amp; 취업</strong>
+              <p>팀 프로젝트와 이력서 · 면접 준비</p>
+            </li>
+          </ol>
+
+          <div class="card-footer">약 7개월 · 4단계 · 팀 프로젝트로 포트폴리오 완성</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>모집 개요</h2>
+          <p>세 과정 모두 같은 일정 · 같은 지원 조건</p>
+        </div>
+
+        <div class="info-grid">
+          <dl class="info-card">
+            <dt>개강일</dt>
+            <dd>2026.12.30</dd>
+            <small>약 7개월 · 4단계 과정</small>
+          </dl>
+
+          <dl class="info-card">
+            <dt>수업 시간</dt>
+            <dd>월–금 09:00–18:00</dd>
+            <small>주 5일 풀타임 과정입니다.</small>
+          </dl>
+
+          <dl class="info-card">
+            <dt>수업 방식</dt>
+            <dd>100% 온라인 실시간</dd>
+            <small>실시간 라이브 수업으로 진행되며, 녹화는 제공되지 않습니다.</small>
+          </dl>
+
+          <dl class="info-card">
+            <dt>지원 대상</dt>
+            <dd>비전공자도 지원 가능</dd>
+            <small>학력 · 전공 · 자격증은 선발 기준이 아닙니다.</small>
+          </dl>
+
+          <dl class="info-card">
+            <dt>선발 방식</dt>
+            <dd>서류 · 비대면 인터뷰</dd>
+            <small>학습 의지를 확인합니다.</small>
+          </dl>
+
+          <dl class="info-card">
+            <dt>과정</dt>
+            <dd>생성형 AI · 사이버 보안 · 클라우드</dd>
+            <small>아래 "과정 비교"에서 나에게 맞는 과정을 골라보세요.</small>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gray">
+      <div class="container">
+        <div class="section-header">
+          <h2>국비지원 및 비용</h2>
+          <p>세 과정 모두 K-디지털 트레이닝 국비지원 과정</p>
+        </div>
+
+        <div class="cost-wrap">
+          <div class="cost-feature">
+            <small>자기부담금</small>
+            <strong>0원 ~ 60만원</strong>
+            <p>약 1,800만~1,900만원 상당 교육비를 국비로 지원합니다. 개인 유형에 따라 자기부담금이 달라집니다.</p>
+          </div>
+
+          <div class="cost-side">
+            <h3>국비지원 내용</h3>
+            <ul class="check-list">
+              <li>약 1,800만~1,900만원 상당 교육비 국비지원</li>
+              <li>개인 유형에 따라 자기부담금 0원~최대 60만원</li>
+              <li>국민취업지원제도 1유형 등은 자기부담금 면제 가능</li>
+              <li>훈련장려금과 국민취업지원제도 수당은 개인별 조건에 따라 차등 지급</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cta-bar">
+          <div>
+            <strong>내 자기부담금과 지원 가능 여부가 궁금하다면</strong>
+            <span>네이버 폼 신청 후 교육 상담이 진행됩니다</span>
+          </div>
+          <a href="https://naver.me/5QsBTPVV" class="primary-btn" target="_blank" rel="noreferrer">무료상담 신청</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="compare">
+      <div class="container">
+        <div class="section-header">
+          <h2>나에게 맞는 과정 고르기</h2>
+          <p>세 과정 모두 같은 일정 · 같은 지원 조건</p>
+        </div>
+
+        <div class="compare-grid">
+          <article class="track-card ai">
+            <div class="track-tag">생성형 AI</div>
+            <h3>AI를 쓰는 사람에서 만드는 사람으로</h3>
+            <div class="kw">LLM + 프롬프트 엔지니어링 + RAG + AI 서비스 개발</div>
+            <p>파이썬과 생성형 AI 기초부터 공개 모델, 프롬프트, RAG, 멀티모달, AI Agent까지 학습합니다.</p>
+
+            <div>
+              <h4>이런 분께 맞아요</h4>
+              <ul>
+                <li>ChatGPT는 써봤지만 직접 AI 서비스를 만들어보고 싶은 분</li>
+                <li>비전공자로 AI 엔지니어 전환을 준비하는 분</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>배우는 순서</h4>
+              <ol>
+                <li>LLM 기초</li>
+                <li>나만의 모델 만들기</li>
+                <li>AI 서비스 개발</li>
+                <li>프로젝트 &amp; 취업</li>
+              </ol>
+            </div>
+
+            <div class="btn-wrap">
+              <button class="secondary-btn" type="button" data-track="ai">생성형 AI 과정 자세히 보기</button>
+            </div>
+          </article>
+
+          <article class="track-card security">
+            <div class="track-tag">사이버 보안</div>
+            <h3>공격을 알아야 지킬 수 있습니다</h3>
+            <div class="kw">클라우드 보안 + 네트워크 보안 + 침해사고 대응</div>
+            <p>네트워크, 리눅스, 취약점 진단, 보안관제, 침해 대응까지 실무 기반으로 익힙니다.</p>
+
+            <div>
+              <h4>이런 분께 맞아요</h4>
+              <ul>
+                <li>해킹 · 보안에 관심은 있지만 시작점을 못 찾은 분</li>
+                <li>자격증 공부와 함께 실습 경험을 쌓고 싶은 분</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>배우는 순서</h4>
+              <ol>
+                <li>보안 기초</li>
+                <li>공격 기술 이해</li>
+                <li>방어 &amp; 관제</li>
+                <li>프로젝트 &amp; 취업</li>
+              </ol>
+            </div>
+
+            <div class="btn-wrap">
+              <button class="secondary-btn" type="button" data-track="security">사이버 보안 과정 자세히 보기</button>
+            </div>
+          </article>
+
+          <article class="track-card cloud">
+            <div class="track-tag">클라우드</div>
+            <h3>서비스가 멈추지 않는 인프라를 설계합니다</h3>
+            <div class="kw">리눅스 · 네트워크 + AWS + Docker · Kubernetes + DevOps</div>
+            <p>Docker, Kubernetes, CI/CD, 모니터링까지 배우고 실제 배포 환경을 구축해 봅니다.</p>
+
+            <div>
+              <h4>이런 분께 맞아요</h4>
+              <ul>
+                <li>클라우드에 관심은 있지만 무엇부터 할지 모르는 분</li>
+                <li>자격증 외에 실제 배포 · 운영 경험이 필요한 분</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>배우는 순서</h4>
+              <ol>
+                <li>컨테이너 기초</li>
+                <li>자동화</li>
+                <li>운영 &amp; 모니터링</li>
+                <li>프로젝트 &amp; 취업</li>
+              </ol>
+            </div>
+
+            <div class="btn-wrap">
+              <button class="secondary-btn" type="button" data-track="cloud">클라우드 과정 자세히 보기</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>공통 참여 혜택</h2>
+          <p>세 과정 모두 동일하게 적용됩니다</p>
+        </div>
+
+        <div class="benefits">
+          <div class="benefit">
+            <div class="icon">👥</div>
+            <strong>현직자 멘토링 및 기술 특강</strong>
+            <span>실무자 관점의 현업 노하우와 실전 팁을 배웁니다.</span>
+          </div>
+
+          <div class="benefit">
+            <div class="icon">📄</div>
+            <strong>프로젝트 · 포트폴리오 피드백</strong>
+            <span>실제 프로젝트를 통해 팀 단위 협업과 산출물 정리까지 진행합니다.</span>
+          </div>
+
+          <div class="benefit">
+            <div class="icon">💼</div>
+            <strong>이력서 및 취업 컨설팅</strong>
+            <span>지원서 작성부터 합격 스토리 구성까지 함께 준비합니다.</span>
+          </div>
+
+          <div class="benefit">
+            <div class="icon">☁️</div>
+            <strong>실습용 클라우드 환경과 노트북 지원</strong>
+            <span>실습에 필요한 환경을 바로 사용할 수 있습니다.</span>
+          </div>
+
+          <div class="benefit">
+            <div class="icon">🏆</div>
+            <strong>우수 수료생 채용 지원 시 우대</strong>
+            <span>수료 후 취업 연계와 실무 역량 강화를 위한 기회를 제공합니다.</span>
+          </div>
+
+          <div class="benefit">
+            <div class="icon">💰</div>
+            <strong>월 최대 30만원 수준 훈련장려금 지원</strong>
+            <span>개인별 조건에 따라 추가 지원이 가능할 수 있습니다.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gray">
+      <div class="container">
+        <div class="section-header">
+          <h2>지원 절차</h2>
+          <p>선발 과정이 있습니다</p>
+        </div>
+
+        <div class="steps-4">
+          <div>
+            <div class="no">STEP 01</div>
+            <strong>지원서 작성</strong>
+            <span>상담 후 온라인 작성</span>
+          </div>
+
+          <div>
+            <div class="no">STEP 02</div>
+            <strong>고용24 수강신청</strong>
+            <span>내일배움카드 필요</span>
+          </div>
+
+          <div>
+            <div class="no">STEP 03</div>
+            <strong>서류 · 비대면 인터뷰</strong>
+            <span>학습 의지 확인</span>
+          </div>
+
+          <div>
+            <div class="no">STEP 04</div>
+            <strong>최종 합격</strong>
+            <span>개별 통보</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container faq">
+        <div class="section-header" style="display:block; margin-bottom:20px;">
+          <h2>자주 묻는 질문</h2>
+        </div>
+
+        <details open>
+          <summary>비전공자도 수강 가능한가요?</summary>
+          <div class="faq-content">
+            가능합니다. 기초 개념부터 프로젝트까지 단계적으로 진행됩니다. 다만 주 5일 풀타임 과정이라 끝까지 참여할 시간 확보가 가장 중요합니다.
+          </div>
+        </details>
+
+        <details>
+          <summary>수강료가 정말 무료인가요?</summary>
+          <div class="faq-content">
+            K-디지털 트레이닝(KDT) 과정으로 수강료 대부분이 국비 지원됩니다. 개인 조건에 따라 자부담금이 없거나 최대 60만원까지 발생할 수 있으며, 상담 시 정확히 안내드립니다.
+          </div>
+        </details>
+
+        <details>
+          <summary>내일배움카드가 없는데 지원할 수 있나요?</summary>
+          <div class="faq-content">
+            고용24에서 카드 발급 신청 후 지원하시면 됩니다. 지원서 작성과 카드 발급은 동시에 진행해도 됩니다.
+          </div>
+        </details>
+
+        <details>
+          <summary>녹화본으로 복습할 수 있나요?</summary>
+          <div class="faq-content">
+            실시간 라이브 수업으로 진행되며 녹화본은 제공되지 않습니다. 출석도 실시간 참여 기준입니다.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <div class="date-badge"><span class="accent">12.30</span> 개강</div>
+        <p>
+          지원 자격과 본인부담 여부, 1:1로 확인해 드립니다. 네이버폼에 남겨주시면 담당자가 확인 후 연락드립니다.
+        </p>
+
+        <div class="actions">
+          <a href="https://naver.me/5QsBTPVV" class="primary-btn" target="_blank" rel="noreferrer">교육과정 문의 · 상담 신청</a>
+          <a href="#compare" class="secondary-btn">커리큘럼 보기</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="bottom-bar">
+    <div class="container">
+      <div class="bottom-text"><strong id="bottomTrack">생성형 AI</strong> 과정 · 12/30 개강 · 본인부담 0원~60만원</div>
+      <a href="https://naver.me/5QsBTPVV" class="primary-btn" target="_blank" rel="noreferrer">무료상담 신청</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <span>본 과정은 고용노동부 K-디지털 트레이닝(KDT) 국비지원 과정입니다.</span>
+      <span>세부 일정 및 내용은 운영 사정에 따라 변경될 수 있습니다.</span>
+    </div>
+  </footer>
+
+  <script>
+    const trackData = {
+      ai: {
+        name: "생성형 AI",
+        steps: [
+          ["LLM 기초", "모델이 동작하는 원리부터 직접 다룹니다"],
+          ["나만의 모델 만들기", "공개 모델을 내 데이터로 학습시키고 평가합니다"],
+          ["AI 서비스 개발", "검색형 챗봇부터 AI 에이전트까지 만듭니다"],
+          ["프로젝트 & 취업", "팀 프로젝트와 이력서 · 면접 준비"]
+        ]
+      },
+      security: {
+        name: "사이버 보안",
+        steps: [
+          ["보안 기초", "네트워크와 암호 기술의 기본 구조"],
+          ["공격 기술 이해", "실습 환경에서 취약점 원리를 익힙니다"],
+          ["방어 & 관제", "로그로 공격을 탐지하고 사고에 대응합니다"],
+          ["프로젝트 & 취업", "팀 프로젝트와 이력서 · 면접 준비"]
+        ]
+      },
+      cloud: {
+        name: "클라우드",
+        steps: [
+          ["컨테이너 기초", "어디서든 똑같이 실행되는 컨테이너 기술"],
+          ["자동화", "서버 관리와 배포를 자동으로 만듭니다"],
+          ["운영 & 모니터링", "트래픽을 나누고 장애를 미리 감지합니다"],
+          ["프로젝트 & 취업", "팀 프로젝트와 이력서 · 면접 준비"]
+        ]
+      }
+    };
+
+    const themeToggle = document.getElementById("themeToggle");
+
+    function initTheme() {
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.body.classList.add("dark-mode");
+        themeToggle.textContent = "🌙";
+      } else {
+        themeToggle.textContent = "☀️";
+      }
+    }
+
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      themeToggle.textContent = isDark ? "🌙" : "☀️";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+
+    function renderTrack(track) {
+      const data = trackData[track];
+      if (!data) return;
+
+      const trackName = document.getElementById("trackName");
+      const trackSteps = document.getElementById("trackSteps");
+      const bottomTrack = document.getElementById("bottomTrack");
+
+      trackName.textContent = `${data.name} 과정`;
+      bottomTrack.textContent = data.name;
+
+      trackSteps.innerHTML = data.steps.map(([title, text], index) => `
+        <li>
+          <small>STEP ${index + 1}</small>
+          <strong>${title}</strong>
+          <p>${text}</p>
+        </li>
+      `).join("");
+    }
+
+    document.querySelectorAll("[data-track]").forEach(button => {
+      button.addEventListener("click", () => {
+        renderTrack(button.dataset.track);
+        document.getElementById("compare").scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    // URL 파라미터에서 track 설정
+    const params = new URLSearchParams(window.location.search);
+    const track = params.get("track");
+    if (track && trackData[track]) {
+      renderTrack(track);
+    } else {
+      renderTrack("ai");
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
