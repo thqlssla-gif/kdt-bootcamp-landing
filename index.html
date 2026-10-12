@@ -1363,6 +1363,12 @@
       }
     };
 
+    const params = new URLSearchParams(window.location.search);
+    const requestedTrack = params.get("track") || params.get("course") || "ai";
+    const version = params.get("v") || "2";
+
+    document.documentElement.setAttribute("data-version", version);
+
     const themeToggle = document.getElementById("themeToggle");
 
     function initTheme() {
@@ -1409,15 +1415,8 @@
       });
     });
 
-    // URL 파라미터에서 track 설정
-    const params = new URLSearchParams(window.location.search);
-    const track = params.get("track");
-    if (track && trackData[track]) {
-      renderTrack(track);
-    } else {
-      renderTrack("ai");
-    }
-
+    const validTrack = trackData[requestedTrack] ? requestedTrack : "ai";
+    renderTrack(validTrack);
     initTheme();
   </script>
 </body>
