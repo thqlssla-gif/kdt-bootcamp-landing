@@ -1,0 +1,1089 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>국비 부트캠프 3트랙</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap">
+<style>
+/* 레이아웃: 첫 화면 = 과정 고르는 무대(좌 카피 · 우 4단계 카드), 아래로 비교 → 절차 → 상담 */
+:root{
+  --ink:#16181d; --ink2:#353b46; --ink3:#5c6370; --line:#e3e5e9; --bg2:#f7f8fa; --paper:#fff;
+  --mute:#b8bcc4; --sun:#e03131; --sat:#1c7ed6; --dim:rgba(17,19,24,.45); --shadow:0 12px 32px -18px rgba(22,24,29,.28);
+  --ai:#5b57d1; --ai-soft:#efeefc; --ai-ink:#4440b0;
+  --sec:#0e9384; --sec-soft:#e7f6f3; --sec-ink:#0a7468;
+  --cl:#e8590c; --cl-soft:#fff1e7; --cl-ink:#b8460a;
+  --hero-bg:#f2f3f7; --on-acink:#fff;
+  --accent:var(--ai); --soft:var(--ai-soft); --acink:var(--ai-ink);
+  --font:'Pretendard','Pretendard Variable','Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#eceef2; --ink2:#c4c8d0; --ink3:#8d94a0; --line:#2a2e36; --bg2:#171a1f; --paper:#0f1115;
+    --mute:#4a505b; --sun:#ff6b6b; --sat:#4dabf7; --dim:rgba(0,0,0,.6); --shadow:0 12px 32px -18px rgba(0,0,0,.8);
+    --ai:#6f6bea; --ai-soft:#22213f; --ai-ink:#aeabff;
+    --sec:#12a191; --sec-soft:#0f2b28; --sec-ink:#5fd3c4;
+    --cl:#ea6a22; --cl-soft:#341d10; --cl-ink:#ffa66b; --hero-bg:#0b0d12; --on-acink:#0b0d12;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#eceef2; --ink2:#c4c8d0; --ink3:#8d94a0; --line:#2a2e36; --bg2:#171a1f; --paper:#0f1115;
+  --mute:#4a505b; --sun:#ff6b6b; --sat:#4dabf7; --dim:rgba(0,0,0,.6); --shadow:0 12px 32px -18px rgba(0,0,0,.8);
+  --ai:#6f6bea; --ai-soft:#22213f; --ai-ink:#aeabff;
+  --sec:#12a191; --sec-soft:#0f2b28; --sec-ink:#5fd3c4;
+  --cl:#ea6a22; --cl-soft:#341d10; --cl-ink:#ffa66b; --hero-bg:#0b0d12; --on-acink:#0b0d12;
+  color-scheme:dark;
+}
+body[data-c="ai"]{--accent:var(--ai);--soft:var(--ai-soft);--acink:var(--ai-ink)}
+body[data-c="security"]{--accent:var(--sec);--soft:var(--sec-soft);--acink:var(--sec-ink)}
+body[data-c="cloud"]{--accent:var(--cl);--soft:var(--cl-soft);--acink:var(--cl-ink)}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font);color:var(--ink);background:var(--paper);line-height:1.65;letter-spacing:-.015em;word-break:keep-all;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;border:0;background:none;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:20px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--paper);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;height:60px;gap:10px}
+.logo{font-weight:900;font-size:17px;display:flex;align-items:center;gap:8px;margin-right:auto}
+.logo i{width:10px;height:10px;border-radius:3px;background:var(--accent);transition:background .35s}
+.theme{width:38px;height:38px;border:1px solid var(--line);border-radius:10px;display:grid;place-items:center;color:var(--ink2)}
+.theme:hover{color:var(--ink);border-color:var(--ink3)}
+.theme .moon{display:none}
+:root[data-theme="dark"] .theme .sun{display:none}
+:root[data-theme="dark"] .theme .moon{display:block}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .theme .sun{display:none} :root:not([data-theme="light"]) .theme .moon{display:block} }
+.top .btn{height:38px;font-size:14px;padding:0 14px;background:var(--ink);color:var(--paper)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 22px;border-radius:10px;font-weight:800;font-size:15.5px;white-space:nowrap}
+.btn-main{background:var(--accent);color:#fff;transition:background .35s}
+.btn-main:hover{background:var(--acink)}
+.btn-line{border:1px solid var(--line);color:var(--ink2);background:var(--paper)}
+.btn-line:hover{border-color:var(--ink3);color:var(--ink)}
+
+/* hero — 라이트/다크 테마를 따라가는 무대 (라이트는 옅은 회색 무대, 다크는 짙은 무대) */
+.top{transition:background-color .25s,border-color .25s}
+.top.on-hero{background:var(--hero-bg);border-bottom-color:transparent}
+.hero{position:relative;overflow:hidden;padding-block:52px 150px;background:var(--hero-bg);color:var(--ink)}
+.hero>.wrap{position:relative;z-index:2}
+.hero .btn-main{background:var(--acink);color:var(--on-acink)}
+.hero .btn-main:hover{background:color-mix(in srgb,var(--acink) 84%,var(--ink))}
+.hero .btn-line{background:var(--paper);border-color:var(--line);color:var(--ink)}
+.hero .card{background:var(--paper);background:color-mix(in srgb,var(--paper) 80%,transparent)}
+.hero .seg{background:var(--paper)}
+.hero .seg button[aria-selected="true"]{background:var(--soft)}
+.bgfx{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.3) 0%,rgba(0,0,0,.45) 34%,#000 62%);
+          mask-image:linear-gradient(90deg,rgba(0,0,0,.3) 0%,rgba(0,0,0,.45) 34%,#000 62%)}
+/* ===== 전환형 구성: 한눈에 보는 정보 + 문의 유도 ===== */
+section[id]{scroll-margin-top:64px}
+.hint{margin-top:12px;font-size:13.5px;color:var(--ink3)}
+.jump{border-bottom:1px solid var(--line);background:var(--paper)}
+.jump .wrap{display:flex;gap:8px;overflow-x:auto;padding-block:14px;scrollbar-width:none}
+.jump .wrap::-webkit-scrollbar{display:none}
+.jump a{flex:none;font-size:14px;font-weight:800;padding:8px 15px;border:1px solid var(--line);border-radius:999px;color:var(--ink2);background:var(--paper);transition:border-color .2s,color .2s}
+.jump a:hover{border-color:var(--accent);color:var(--acink)}
+.close .jump-b{margin-top:30px}
+.close .jump-b .wrap{justify-content:center;flex-wrap:wrap;overflow:visible;padding:0}
+
+.kv{border:1px solid var(--line);border-radius:14px;background:var(--paper);overflow:hidden}
+.kv>div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:16px 22px;border-bottom:1px solid var(--line);align-items:baseline}
+.kv>div:last-child{border-bottom:0}
+.kv dt{font-size:14px;font-weight:800;color:var(--ink3)}
+.kv dd{font-size:16.5px;font-weight:800;letter-spacing:-.02em}
+.kv dd small{display:block;font-weight:500;font-size:13.5px;color:var(--ink3);margin-top:2px;letter-spacing:-.01em}
+
+.cost{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.cost-main{border-radius:14px;padding:32px 30px;background:var(--soft);color:var(--acink);transition:background .35s,color .35s;display:flex;flex-direction:column;justify-content:center}
+.cost-main small{font-size:14px;font-weight:800}
+.cost-main strong{display:block;margin:6px 0 10px;font-size:clamp(40px,6.4vw,66px);line-height:1.05;font-weight:900;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.cost-main p{font-size:15px;font-weight:600;line-height:1.6}
+.cost-side{border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:26px 26px 22px}
+.cost-side h3{font-size:17px;font-weight:900;margin-bottom:12px}
+.check{list-style:none;display:flex;flex-direction:column;gap:10px}
+.check li{position:relative;padding-left:28px;font-size:15px;color:var(--ink2)}
+.check li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/11px no-repeat}
+.cost-side .note{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+
+.strip{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;flex-wrap:wrap;margin-top:22px;padding:20px 24px;border-radius:14px;background:var(--ink);color:var(--paper)}
+.strip b{display:block;font-size:18px;letter-spacing:-.025em}
+.strip span{display:block;margin-top:2px;font-size:14px;opacity:.72;font-weight:500}
+.strip .btn{height:48px;background:var(--paper);color:var(--ink)}
+
+.sub{margin:44px 0 14px;font-size:20px;font-weight:900;letter-spacing:-.03em}
+.sub:first-of-type{margin-top:0}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tile{border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:22px 20px}
+.tile i{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--soft);color:var(--acink);margin-bottom:14px;transition:background .35s,color .35s}
+.tile b{display:block;font-size:16.5px;line-height:1.45;letter-spacing:-.02em}
+.tile span{display:block;margin-top:4px;font-size:13.5px;color:var(--ink3)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pj{border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:24px 26px}
+.pj em{font-style:normal;font-size:12.5px;font-weight:800;padding:4px 10px;border-radius:6px;background:var(--soft);color:var(--acink)}
+.pj b{display:block;margin-top:12px;font-size:19px;letter-spacing:-.03em}
+.pj p{margin-top:6px;font-size:14.5px;color:var(--ink2)}
+.career{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.career li{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:15px 16px 15px 46px;position:relative;font-size:15px;font-weight:800;letter-spacing:-.02em}
+.career li::before{content:"";position:absolute;left:16px;top:17px;width:18px;height:18px;border-radius:50%;background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/11px no-repeat}
+
+.close-card{max-width:560px;margin:30px auto 0;text-align:left;border:1px solid var(--line);border-radius:14px;background:var(--paper);overflow:hidden}
+.close-card h3{padding:16px 22px;font-size:17px;font-weight:900;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.close-card h3 em{font-style:normal;font-size:12.5px;font-weight:800;padding:4px 9px;border-radius:5px;background:var(--soft);color:var(--acink)}
+.close-card .kv{border:0;border-radius:0}
+.close-card .kv>div{grid-template-columns:96px minmax(0,1fr);padding:12px 22px}
+.close-card .kv dd{font-size:15.5px}
+
+@media(max-width:900px){.hero{padding-block:36px 120px}.bgfx{opacity:.75;-webkit-mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.45));mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.45))}}
+
+/* 과정 키워드가 흐르는 큰 외곽선 글자 */
+.mq{position:absolute;left:0;right:0;bottom:18px;z-index:1;overflow:hidden;pointer-events:none;white-space:nowrap}
+.mq-t{display:inline-block;font-family:'Anton',Impact,'Arial Narrow',sans-serif;font-size:clamp(84px,13vw,200px);line-height:1;letter-spacing:.01em;color:transparent;-webkit-text-stroke:1.5px var(--accent);opacity:.36;animation:mq 46s linear infinite;will-change:transform}
+.mq-t span{padding-right:.5em}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.mq-t{animation:none}}
+.seg{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--bg2);max-width:100%;overflow-x:auto}
+.seg button{padding:9px 16px;border-radius:9px;font-weight:800;font-size:15px;color:var(--ink3);white-space:nowrap;transition:background .25s,color .25s}
+.seg button[aria-selected="true"]{background:var(--paper);color:var(--acink);box-shadow:0 1px 3px rgba(0,0,0,.14)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:56px;align-items:center;margin-top:34px}
+.meta{font-size:14px;font-weight:700;color:var(--ink2);display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.meta .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.meta .sep{color:var(--line)}
+.hl{margin-top:16px;font-size:clamp(34px,6vw,68px);line-height:1.2;font-weight:900;letter-spacing:-.045em}
+.hl .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hl .ln>span{display:inline-block}
+.hl em{font-style:normal;color:var(--accent)}
+.lead{margin-top:18px;font-size:17px;color:var(--ink2);max-width:560px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.chips span{font-size:13.5px;font-weight:700;padding:5px 11px;border-radius:6px;background:var(--soft);color:var(--acink)}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+
+.card{border:1px solid var(--line);border-radius:18px;padding:26px 28px 22px;background:var(--paper);background:color-mix(in srgb,var(--paper) 84%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:var(--shadow)}
+.card-h{display:flex;justify-content:space-between;align-items:center;font-size:19px;font-weight:900;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.card-h em{font-style:normal;font-size:12.5px;font-weight:800;padding:4px 9px;border-radius:5px;background:var(--soft);color:var(--acink)}
+.steps{position:relative;list-style:none;padding:20px 0 4px 40px;display:flex;flex-direction:column;gap:18px}
+.rail{position:absolute;left:9px;top:30px;bottom:24px;width:3px;border-radius:2px;background:var(--line);overflow:hidden}
+.rail b{position:absolute;inset:0;background:var(--accent);transform-origin:top;display:block}
+.step{position:relative}
+.step .d{position:absolute;left:-40px;top:5px;width:21px;height:21px;border-radius:50%;border:4px solid var(--accent);background:var(--paper)}
+.step:last-child .d{background:var(--accent)}
+.step small{display:block;font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--accent)}
+.step b{display:block;font-size:17.5px;font-weight:900}
+.step p{font-size:13.5px;color:var(--ink3);line-height:1.5;margin-top:2px}
+.card-f{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px;font-weight:700;color:var(--ink3)}
+
+/* hero motion: 끝 상태가 기본, 재생할 때만 처음 상태에서 출발 */
+.hero.play .meta{animation:up .5s cubic-bezier(.2,.8,.2,1) both}
+.hero.play .hl .ln>span{animation:rise .75s cubic-bezier(.2,.8,.2,1) .06s both}
+.hero.play .hl .ln:nth-child(2)>span{animation-delay:.18s}
+.hero.play .lead{animation:up .6s cubic-bezier(.2,.8,.2,1) .32s both}
+.hero.play .chips span{animation:pop .45s cubic-bezier(.3,1.5,.5,1) both}
+.hero.play .chips span:nth-child(1){animation-delay:.45s}
+.hero.play .chips span:nth-child(2){animation-delay:.52s}
+.hero.play .chips span:nth-child(3){animation-delay:.59s}
+.hero.play .chips span:nth-child(4){animation-delay:.66s}
+.hero.play .actions{animation:up .6s cubic-bezier(.2,.8,.2,1) .55s both}
+.hero.play .card{animation:side .7s cubic-bezier(.2,.8,.2,1) .1s both}
+.hero.play .rail b{animation:grow 1s cubic-bezier(.65,0,.35,1) .4s both}
+.hero.play .step{animation:up .45s cubic-bezier(.2,.8,.2,1) both}
+.hero.play .step:nth-child(2){animation-delay:.4s}
+.hero.play .step:nth-child(3){animation-delay:.62s}
+.hero.play .step:nth-child(4){animation-delay:.84s}
+.hero.play .step:nth-child(5){animation-delay:1.06s}
+.hero.play .step .d{animation:dot .3s both}
+.hero.play .step:nth-child(2) .d{animation-delay:.5s}
+.hero.play .step:nth-child(3) .d{animation-delay:.72s}
+.hero.play .step:nth-child(4) .d{animation-delay:.94s}
+.hero.play .step:nth-child(5) .d{animation-delay:1.16s}
+@keyframes rise{from{transform:translateY(105%)}}
+@keyframes up{from{opacity:0;transform:translateY(14px)}}
+@keyframes side{from{opacity:0;transform:translateX(40px)}}
+@keyframes pop{from{opacity:0;transform:scale(.8)}}
+@keyframes grow{from{transform:scaleY(0)}}
+@keyframes dot{from{border-color:var(--line)}}
+
+/* facts strip */
+.facts{border-block:1px solid var(--line);background:var(--bg2)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.fact{padding-block:22px;padding-inline:20px;border-right:1px solid var(--line)}
+.fact:first-child{padding-left:0}
+.fact:last-child{border-right:0}
+.fact small{display:block;font-size:12.5px;font-weight:700;color:var(--ink3)}
+.fact b{display:block;font-size:22px;font-weight:900;font-variant-numeric:tabular-nums;margin-top:2px}
+.fact b sup{font-size:13px;color:var(--ink3)}
+
+/* sections */
+.sec{padding-block:80px}
+.gray{background:var(--bg2)}
+.sh{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.sh h2{font-size:clamp(24px,3vw,32px);font-weight:900;letter-spacing:-.035em;text-wrap:balance}
+.sh p{margin-left:auto;font-size:14px;color:var(--ink3)}
+.note{margin-top:12px;font-size:13px;color:var(--ink3)}
+
+.cmp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.col{border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:24px;display:flex;flex-direction:column;gap:16px}
+.col .tag{align-self:flex-start;font-size:13px;font-weight:800;padding:4px 10px;border-radius:6px}
+.col[data-k="ai"]{--k:var(--ai);--k-soft:var(--ai-soft);--k-ink:var(--ai-ink)}
+.col[data-k="security"]{--k:var(--sec);--k-soft:var(--sec-soft);--k-ink:var(--sec-ink)}
+.col[data-k="cloud"]{--k:var(--cl);--k-soft:var(--cl-soft);--k-ink:var(--cl-ink)}
+.col .tag{background:var(--k-soft);color:var(--k-ink)}
+.col h3{font-size:21px;font-weight:900;letter-spacing:-.03em;line-height:1.35}
+.col h4{font-size:12.5px;font-weight:800;color:var(--ink3);margin-bottom:6px}
+.col ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.col li{font-size:14.5px;color:var(--ink2);padding-left:14px;position:relative}
+.col ul li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:2px;background:var(--k)}
+.col ol{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:4px}
+.col ol li{counter-increment:s;padding-left:26px}
+.col ol li::before{content:counter(s);position:absolute;left:0;top:1px;font-size:12.5px;font-weight:800;color:var(--k-ink)}
+.col .btn{margin-top:auto;height:46px;font-size:14.5px}
+.col .kw{font-size:13.5px;font-weight:800;color:var(--k-ink);margin-top:-6px}
+.col .desc{font-size:14px;color:var(--ink2);line-height:1.65}
+
+.flow{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:14px;background:var(--paper);counter-reset:f}
+.flow li{padding:20px 22px;border-right:1px solid var(--line);counter-increment:f}
+.flow li:last-child{border-right:0}
+.flow li::before{content:"0" counter(f);display:block;font-size:12.5px;font-weight:800;color:var(--accent);margin-bottom:4px}
+.flow b{display:block;font-size:16px}
+.flow span{font-size:13.5px;color:var(--ink3)}
+
+.qa{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--paper)}
+.qa summary{list-style:none;display:flex;gap:12px;align-items:center;padding:16px 18px;cursor:pointer;font-weight:800;font-size:15.5px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::before{content:"Q.";color:var(--accent)}
+.qa summary::after{content:"+";margin-left:auto;color:var(--ink3);font-size:20px;font-weight:500}
+.qa[open] summary::after{content:"–"}
+.qa p{padding:0 18px 16px 46px;font-size:14.5px;color:var(--ink2)}
+.narrow{max-width:820px}
+
+.close{padding-block:84px;text-align:center}
+.close .date{font-size:clamp(56px,11vw,120px);font-weight:900;letter-spacing:-.055em;line-height:1.05}
+.close .date em{font-style:normal;color:var(--accent)}
+.close p{margin-top:12px;font-size:17px;color:var(--ink2)}
+.close .note{font-size:13px}
+.close .actions{justify-content:center}
+
+footer{border-top:1px solid var(--line);padding-block:26px 110px;font-size:12.5px;color:var(--ink3)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px}
+.bar-t{font-size:14px;color:var(--ink2);min-width:0}
+.bar-t b{color:var(--ink)}
+.bar .btn{height:44px;font-size:14.5px}
+
+/* ===== 누른 자리에 번지는 조명 ===== */
+.glow{position:fixed;z-index:200;left:0;top:0;width:620px;height:620px;margin:-310px 0 0 -310px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,color-mix(in srgb,var(--accent) 42%,transparent) 0%,color-mix(in srgb,var(--accent) 16%,transparent) 32%,transparent 66%);
+  animation:glow .75s cubic-bezier(.2,.7,.2,1) forwards}
+.glow.big{width:980px;height:980px;margin:-490px 0 0 -490px}
+@keyframes glow{0%{opacity:0;transform:scale(.35)}18%{opacity:1}100%{opacity:0;transform:scale(1.15)}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .glow{mix-blend-mode:screen}}
+:root[data-theme="dark"] .glow{mix-blend-mode:screen}
+@media(max-width:600px){.glow{width:420px;height:420px;margin:-210px 0 0 -210px}.glow.big{width:640px;height:640px;margin:-320px 0 0 -320px}}
+
+/* ===== 실습 터미널 ===== */
+.lab-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:28px;align-items:start}
+.term{--tp:#b6b3ff;background:#0d1017;border:1px solid #232733;border-radius:14px;overflow:hidden;color:#d7dbe3;font-family:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,Consolas,'Noto Sans KR',monospace;box-shadow:var(--shadow)}
+body[data-c="security"] .term{--tp:#6bdfd0}
+body[data-c="cloud"] .term{--tp:#ffae76}
+.term-h{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #232733;font-size:12.5px;color:#8d95a3}
+.term-h .dots{display:flex;gap:6px}
+.term-h .dots i{width:10px;height:10px;border-radius:50%;background:#2d323e;display:block}
+.term-h b{font-weight:600;color:#c5cad3}
+.term-h button{margin-left:auto;min-height:32px;padding:0 10px;border:1px solid #2d323e;border-radius:7px;font:inherit;font-size:12px;color:#c5cad3}
+.term-h button:hover{border-color:#5a6170}
+.term-b{height:340px;overflow:hidden;padding:18px 20px;font-size:13.5px;line-height:1.75;display:flex;flex-direction:column;justify-content:flex-end}
+.term-b p{white-space:pre-wrap;word-break:break-all;min-height:1.75em}
+.term-b .cmd{color:#f1f3f6}
+.term-b .cmd::before{content:"$ ";color:var(--tp);font-weight:600}
+.term-b .q{color:#f1f3f6}
+.term-b .q::before{content:"› ";color:var(--tp);font-weight:600}
+.term-b .mut{color:#7f8796}
+.term-b .ok{color:#62d394}
+.term-b .warn{color:#f2c45a}
+.term-b .bad{color:#ff7a7a}
+.term-b .hi{color:var(--tp)}
+.cur{display:inline-block;width:.6em;height:1.15em;vertical-align:-.2em;background:var(--tp);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lab-side h3{font-size:clamp(22px,2.4vw,28px);font-weight:900;letter-spacing:-.035em;line-height:1.35;text-wrap:balance}
+.lab-side>p{margin-top:8px;font-size:15px;color:var(--ink2)}
+.lab-list{list-style:none;margin-top:22px;display:flex;flex-direction:column}
+.lab-list li{display:grid;grid-template-columns:76px minmax(0,1fr);gap:4px 12px;padding:16px 0;border-top:1px solid var(--line)}
+.lab-list li:last-child{border-bottom:1px solid var(--line)}
+.lab-list .n{grid-row:1 / span 2;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;font-weight:600;color:var(--acink);padding-top:3px}
+.lab-list b{font-size:16px;font-weight:800}
+.lab-list span{font-size:14px;color:var(--ink3)}
+.lab-list.play li{animation:up .3s ease-out both}
+.lab-list.play li:nth-child(2){animation-delay:.06s}
+.lab-list.play li:nth-child(3){animation-delay:.12s}
+@media(max-width:900px){.lab-grid{grid-template-columns:minmax(0,1fr)}.term-b{height:360px;font-size:12.5px;padding:14px 14px}}
+@media(prefers-reduced-motion:reduce){.cur{animation:none}}
+
+/* ===== 상담 창 ===== */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.dim{position:absolute;inset:0;background:var(--dim)}
+.sheet{position:relative;width:100%;max-width:420px;max-height:92vh;overflow-y:auto;overflow-x:hidden;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px 22px 20px}
+.sheet h3{font-size:19px;font-weight:900}
+.sheet .view>p{font-size:13.5px;color:var(--ink3);margin:4px 0 18px}
+.view[hidden]{display:none}
+.x{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:8px;color:var(--ink3);font-size:18px}
+.x:hover{background:var(--bg2)}
+.opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:14px 16px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--paper)}
+.opt:hover{border-color:var(--ink3)}
+.oi{flex:none;width:40px;height:40px;border-radius:9px;display:grid;place-items:center}
+.opt.call{border-color:var(--accent)}
+.opt.call .oi{background:var(--accent);color:#fff}
+.opt.naver .oi{background:#03c75a;color:#fff;font-weight:900;font-size:17px}
+.opt.kakao .oi{background:#fee500}
+.ot{flex:1;min-width:0}
+.ot b{display:block;font-size:15px}
+.ot span{font-size:12.5px;color:var(--ink3)}
+.arr{color:var(--ink3)}
+.or{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink3);margin:14px 0 10px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.back{font-size:13px;color:var(--ink3);font-weight:700;margin-bottom:10px}
+.back:hover{color:var(--ink)}
+.cf{display:grid;gap:16px;margin-top:4px}
+.cf>div,.row2>div{min-width:0}
+.fl{font-size:13px;font-weight:800;color:var(--ink2);margin-bottom:6px;display:flex;justify-content:space-between}
+.fl small{font-weight:700;color:var(--ink3)}
+.in{width:100%;height:44px;border:1px solid var(--line);border-radius:8px;padding:0 12px;font:inherit;font-size:16px;color:var(--ink);background:var(--paper)}
+.in:focus{outline:none;border-color:var(--accent)}
+textarea.in{height:64px;padding:10px 12px;resize:none}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cal{border:1px solid var(--line);border-radius:10px;padding:10px 10px 8px}
+.cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.cal-h b{font-size:15px}
+.cal-nav{width:32px;height:32px;border-radius:8px;font-size:20px;color:var(--ink2)}
+.cal-nav:hover:not(:disabled){background:var(--bg2)}
+.cal-nav:disabled{color:var(--mute);cursor:default}
+.cal-w,.cal-g{display:grid;grid-template-columns:repeat(7,1fr);text-align:center}
+.cal-w span{font-size:12px;color:var(--ink3);padding:4px 0}
+.cal-w .sun,.cd.sun{color:var(--sun)}
+.cal-w .sat,.cd.sat{color:var(--sat)}
+.cd{height:38px;margin:1px;border-radius:8px;font-size:14px;font-weight:700;color:var(--ink)}
+.cd:hover:not(:disabled){background:var(--bg2)}
+.cd:disabled{color:var(--mute)!important;font-weight:400;cursor:default}
+.cd.today{box-shadow:inset 0 0 0 1px var(--line)}
+.cd[aria-pressed="true"]{background:var(--accent)!important;color:#fff!important}
+.slot-ph{grid-column:1/-1;font-size:13px;color:var(--ink3);padding:10px;border:1px dashed var(--line);border-radius:8px;text-align:center}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.slot{padding:10px 4px;border:1px solid var(--line);border-radius:8px;font-size:13.5px;font-weight:700;color:var(--ink2)}
+.slot[aria-pressed="true"]{border-color:var(--accent);background:var(--soft);color:var(--acink)}
+.slot:disabled{color:var(--mute);background:var(--bg2);cursor:not-allowed;text-decoration:line-through}
+.agree{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--ink2)}
+.agree input{margin-top:3px;accent-color:var(--accent)}
+.agree details{margin-top:4px;font-size:12px;color:var(--ink3)}
+.agree summary{cursor:pointer;text-decoration:underline}
+.agree ul{margin:6px 0 0 14px}
+.err{font-size:12.5px;color:var(--sun);min-height:18px}
+.submit{width:100%}
+.submit:disabled{opacity:.6;cursor:wait}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.done{text-align:center;padding:12px 0 4px}
+.done .ck{width:52px;height:52px;border-radius:50%;background:var(--soft);color:var(--acink);display:grid;place-items:center;margin:4px auto 14px}
+.done .sum{margin:14px 0 18px;padding:14px;border-radius:10px;background:var(--bg2);font-size:14px;text-align:left}
+.done .sum div{display:flex;justify-content:space-between;padding:3px 0}
+.done .sum span{color:var(--ink3)}
+.done p{font-size:13px;color:var(--ink3)}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:36px}
+  .cmp{grid-template-columns:minmax(0,1fr)}
+  .facts .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fact:nth-child(2){border-right:0}
+  .fact:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .fact:nth-child(3){padding-left:0}
+  .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flow li:nth-child(2){border-right:0}
+  .flow li:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .sh p{margin-left:0;width:100%}
+  .cost{grid-template-columns:minmax(0,1fr)}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tile:last-child:nth-child(odd){grid-column:1/-1}
+  .career{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:560px){
+  .seg{display:flex}
+  .seg button{flex:1;padding:9px 6px;font-size:14px}
+  .lead{font-size:16px}
+  .hero .actions .btn,.close .actions .btn{flex:1 1 100%}
+  .bar-t .bx{display:none}
+  .kv>div{grid-template-columns:92px minmax(0,1fr);gap:12px;padding:14px 16px}
+  .kv dd{font-size:15.5px}
+  .two,.career{grid-template-columns:minmax(0,1fr)}
+  .strip{padding:18px 18px}
+  .strip .btn{width:100%}
+  .cost-main{padding:26px 22px}
+  .sub{margin-top:36px}
+  .qa p{padding-left:18px}
+  .card{padding:22px 20px 18px}
+  .modal{align-items:flex-end;padding:0}
+  .sheet{max-width:none;border-radius:14px 14px 0 0;border-bottom:0;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+}
+@media(min-width:1024px){
+  body{font-size:17px}
+  .top .wrap{height:68px}
+  .logo{font-size:19px}
+  .hero{padding-block:64px 80px}
+  .lead{font-size:19px;max-width:620px}
+  .meta{font-size:15.5px}
+  .chips span{font-size:15px;padding:6px 12px}
+  .btn{height:58px;font-size:17px;padding:0 28px}
+  .card{padding:32px 34px 26px}
+  .card-h{font-size:21px}
+  .step b{font-size:19.5px}
+  .step p{font-size:15px}
+  .fact b{font-size:26px}
+  .col li{font-size:16px}
+  .col h3{font-size:23px}
+  .sheet{max-width:480px;padding:32px 28px 24px}
+}
+@media(prefers-reduced-motion:reduce){.hero.play *{animation:none!important}}
+
+/* ===== 마우스를 올리면 박스가 살짝 커지고 뒤에서 불빛 (마우스 기기만) ===== */
+@media (hover:hover) and (pointer:fine){
+  .col{--gl:var(--k)}
+  .hero .card,.col,.qa,.term,.opt,.fact{transition:transform .22s cubic-bezier(.2,.7,.2,1),box-shadow .22s,border-color .22s,background-color .22s}
+  .btn{transition:transform .18s cubic-bezier(.2,.7,.2,1),box-shadow .18s,background-color .2s,border-color .2s,color .2s}
+  .hero .card:hover,.col:hover,.qa:hover,.term:hover,.opt:hover{
+    position:relative;z-index:3;
+    transform:translateY(-4px) scale(1.018);
+    border-color:color-mix(in srgb,var(--gl,var(--accent)) 55%,var(--line));
+    box-shadow:0 0 0 1px color-mix(in srgb,var(--gl,var(--accent)) 30%,transparent),
+               0 26px 70px -20px color-mix(in srgb,var(--gl,var(--accent)) 60%,transparent),
+               0 0 90px -30px color-mix(in srgb,var(--gl,var(--accent)) 70%,transparent)}
+  .hero .card:hover{position:static}
+  .fact:hover{background:color-mix(in srgb,var(--accent) 8%,transparent)}
+  .btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 12px 34px -10px color-mix(in srgb,var(--accent) 65%,transparent)}
+  .btn:active{transform:scale(.98)}
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:reduce){
+  .hero .card:hover,.col:hover,.qa:hover,.term:hover,.opt:hover,.btn:hover{transform:none}
+}
+</style>
+<script>
+// 저장된 테마를 그리기 전에 적용 (깜빡임 방지)
+try{ var _t = localStorage.getItem('kdt-theme'); if(_t === 'dark' || _t === 'light') document.documentElement.setAttribute('data-theme', _t); }catch(e){}
+</script>
+<script>document.body.dataset.c = "ai";</script>
+<header class="top on-hero">
+  <div class="wrap">
+    <a href="#" class="logo" data-go="top"><i></i>국비 부트캠프</a>
+    <button type="button" class="theme" id="themeBtn" aria-label="다크모드 전환">
+      <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+    </button>
+    <a class="btn" href="https://naver.me/5QsBTPVV" target="_blank" rel="noopener" data-contact="">상담 신청</a>
+  </div>
+</header>
+
+<section class="hero play" id="top">
+  <canvas class="bgfx" id="bgfx" aria-hidden="true" width="1897" height="780"></canvas>
+  <div class="mq" aria-hidden="true"><div class="mq-t" id="mq"><span>LLM</span><span>RAG</span><span>AI AGENT</span><span>FINE-TUNING</span><span>LANGCHAIN</span><span>HUGGING FACE</span><span>LLM</span><span>RAG</span><span>AI AGENT</span><span>FINE-TUNING</span><span>LANGCHAIN</span><span>HUGGING FACE</span></div></div>
+  <div class="wrap">
+    <div class="seg" role="tablist" aria-label="과정 선택">
+      <button role="tab" data-c="ai" aria-selected="true">생성형 AI</button>
+      <button role="tab" data-c="security" aria-selected="false">사이버 보안</button>
+      <button role="tab" data-c="cloud" aria-selected="false">클라우드</button>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <p class="meta"><span class="dot"></span>2026.12.30 개강 <span class="sep">|</span> KDT 국비지원 <span class="sep">|</span> 100% 온라인 실시간 <span class="sep">|</span> 대기업 연계</p>
+        <h1 class="hl" id="hl"><span class="ln"><span>AI를 쓰는 사람에서</span></span><span class="ln"><span><em>만드는 사람</em>으로</span></span></h1>
+        <p class="lead" id="lead">LLM 파인튜닝, RAG, AI Agent까지. 대기업 현직자 멘토링과 실무 프로젝트로 7개월 동안 생성형 AI 서비스 포트폴리오를 완성합니다.</p>
+        <div class="chips" id="chips"><span>LLM 파인튜닝</span><span>RAG</span><span>AI Agent</span><span>LangChain</span></div>
+        <div class="actions">
+          <a class="btn btn-main" href="https://naver.me/5QsBTPVV" target="_blank" rel="noopener" data-contact="">무료상담 신청</a>
+          <a class="btn btn-line" href="#" data-go="compare">세 과정 비교하기</a>
+        </div>
+        <p class="hint">네이버 폼 신청 후 교육 상담이 진행됩니다. ※ 세부 자격은 상담 시 최종 확인 필요</p>
+      </div>
+      <aside class="card">
+        <div class="card-h"><span id="cname">생성형 AI 과정</span><em>모집중</em></div>
+        <ol class="steps" id="steps"><div class="rail"><b></b></div><li class="step"><i class="d"></i><small>STEP 1</small><b>LLM 기초</b><p>모델이 동작하는 원리부터 직접 다룹니다</p></li><li class="step"><i class="d"></i><small>STEP 2</small><b>나만의 모델 만들기</b><p>공개 모델을 내 데이터로 학습시키고 평가합니다</p></li><li class="step"><i class="d"></i><small>STEP 3</small><b>AI 서비스 개발</b><p>검색형 챗봇부터 AI 에이전트까지 만듭니다</p></li><li class="step"><i class="d"></i><small>STEP 4</small><b>프로젝트 &amp; 취업</b><p>팀 프로젝트와 이력서 · 면접 준비</p></li></ol>
+        <div class="card-f">약 7개월 · 4단계 · 팀 프로젝트로 포트폴리오 완성</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="facts">
+  <div class="wrap">
+    <div class="fact"><small>개강</small><b>2026.12.30</b></div>
+    <div class="fact"><small>교육기간</small><b>약 7개월</b></div>
+    <div class="fact"><small>수업</small><b>월–금 09–18시</b></div>
+    <div class="fact"><small>본인부담금</small><b>0원부터<sup>*</sup></b></div>
+  </div>
+</div>
+
+<nav class="jump" aria-label="섹션 바로가기">
+  <div class="wrap">
+    <a href="#overview" data-go="overview">모집개요</a>
+    <a href="#cost" data-go="cost">수강료 · 본인부담</a>
+    <a href="#compare" data-go="compare">과정 비교</a>
+    <a href="#benefit" data-go="benefit">혜택 · 취업지원</a>
+    <a href="#flow" data-go="flow">지원 절차</a>
+    <a href="#faq" data-go="faq">자주 묻는 질문</a>
+  </div>
+</nav>
+
+<section class="sec" id="overview">
+  <div class="wrap">
+    <div class="sh"><h2>모집 개요</h2><p>세 과정 모두 같은 일정 · 같은 지원 조건</p></div>
+    <dl class="kv">
+      <div><dt>개강일</dt><dd>2026.12.30<small>약 7개월 · 4단계 과정</small></dd></div>
+      <div><dt>수업 시간</dt><dd>월–금 09:00–18:00<small>주 5일 풀타임 과정입니다</small></dd></div>
+      <div><dt>수업 방식</dt><dd>100% 온라인 실시간<small>전 과정 온라인으로만 진행됩니다. 라이브 수업이며 녹화본은 제공되지 않고, 출석은 실시간 참여 기준입니다</small></dd></div>
+      <div><dt>지원 대상</dt><dd>비전공자도 지원 가능<small>학력 · 전공 · 자격증은 선발 기준이 아닙니다</small></dd></div>
+      <div><dt>선발 방식</dt><dd>서류 · 비대면 인터뷰<small>학습 의지를 확인합니다</small></dd></div>
+      <div><dt>과정</dt><dd>생성형 AI · 사이버 보안 · 클라우드<small>아래 &lsquo;과정 비교&rsquo;에서 나에게 맞는 과정을 골라보세요</small></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="sec gray" id="cost">
+  <div class="wrap">
+    <div class="sh"><h2>국비지원 및 비용</h2><p>세 과정 모두 K-디지털 트레이닝 국비지원 과정</p></div>
+    <div class="cost">
+      <div class="cost-main">
+        <small>자기부담금</small>
+        <strong>0원 ~ 60만원</strong>
+        <p>약 1,800만~1,900만원 상당 교육비를 국비로 지원합니다.<br>개인 유형에 따라 자기부담금이 달라집니다.</p>
+      </div>
+      <div class="cost-side">
+        <h3>국비지원 내용</h3>
+        <ul class="check">
+          <li>약 1,800만~1,900만원 상당 교육비 국비지원</li>
+          <li>개인 유형에 따라 자기부담금 0원~최대 60만원</li>
+          <li>국민취업지원제도 1유형 등은 자기부담금 면제 가능</li>
+          <li>훈련장려금과 국민취업지원제도 수당은 개인별 조건에 따라 차등 지급</li>
+        </ul>
+        <p class="note">※ 세부 자격은 상담 시 최종 확인 필요</p>
+      </div>
+    </div>
+    <div class="strip">
+      <div><b>내 자기부담금과 지원 가능 여부가 궁금하다면</b><span>네이버 폼 신청 후 교육 상담이 진행됩니다</span></div>
+      <a class="btn" href="https://naver.me/5QsBTPVV" target="_blank" rel="noopener" data-contact="">무료상담 신청</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="lab">
+  <div class="wrap">
+    <div class="sh"><h2>수업에서 직접 돌려보는 것들</h2><p>실습 예시 화면 · 과정에서 다루는 작업을 재구성했습니다</p></div>
+    <div class="lab-grid">
+      <div class="term" role="img" aria-label="실습 터미널 예시 화면">
+        <div class="term-h"><span class="dots"><i></i><i></i><i></i></span><b id="termFile">lab · rag_bot.py</b><button type="button" id="termRe">다시 실행</button></div>
+        <div class="term-b" id="termBody"><p class="cmd">python rag_bot.py --docs ./국비_안내문</p><p class="mut">[load] 문서 12개 → 문단 186개로 분할</p><p class="mut">[embed] 벡터 저장 완료</p><p class="ok">[ready] RAG 챗봇 실행 중</p><p></p><p class="q">내일배움카드가 없으면 지원을 못 하나요?</p><p class="mut">… 관련 문단 3개 검색</p><p class="hi">답변: 고용24에서 카드 발급 신청과 지원서 작성을</p><p class="hi">      동시에 진행할 수 있습니다.</p><p class="mut">      출처: 국비_안내문 › 자주 묻는 질문</p></div>
+      </div>
+      <div class="lab-side">
+        <h3 id="labTitle">내 문서로 답하는 챗봇을 직접 만듭니다</h3>
+        <p id="labLead">ChatGPT를 쓰는 데서 끝나지 않고, 우리 데이터를 읽고 출처까지 달아 답하는 서비스를 만드는 과정입니다.</p>
+        <ol class="lab-list play" id="labList"><li><span class="n">STEP 1–2</span><b>문서를 잘게 나눠 저장</b><span>모델이 찾을 수 있게 임베딩으로 바꿉니다</span></li><li><span class="n">STEP 3</span><b>질문과 가까운 문서 찾기</b><span>RAG로 근거 문서를 골라 답변에 씁니다</span></li><li><span class="n">STEP 4</span><b>서비스로 완성</b><span>출처를 붙여 답하는 챗봇을 팀 프로젝트로 배포합니다</span></li></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gray" id="compare">
+  <div class="wrap">
+    <div class="sh"><h2>나에게 맞는 과정 고르기</h2><p>세 과정 모두 같은 일정 · 같은 지원 조건</p></div>
+    <div class="cmp" id="cmp"><article class="col" data-k="ai"><span class="tag">생성형 AI</span><h3>AI를 쓰는 사람에서 만드는 사람으로</h3><div><h4>이런 분께 맞아요</h4><ul><li>ChatGPT는 써봤지만 직접 AI 서비스를 만들어보고 싶은 분</li><li>비전공자로 AI 엔지니어 전환을 준비하는 분</li></ul></div><div><h4>배우는 순서</h4><ol><li>LLM 기초</li><li>나만의 모델 만들기</li><li>AI 서비스 개발</li><li>프로젝트 &amp; 취업</li></ol></div><button type="button" class="btn btn-line" data-pick="ai">생성형 AI 과정 자세히 보기</button></article><article class="col" data-k="security"><span class="tag">사이버 보안</span><h3>공격을 알아야 지킬 수 있습니다</h3><div><h4>이런 분께 맞아요</h4><ul><li>해킹 · 보안에 관심은 있지만 시작점을 못 찾은 분</li><li>자격증 공부와 함께 실습 경험을 쌓고 싶은 분</li></ul></div><div><h4>배우는 순서</h4><ol><li>보안 기초</li><li>공격 기술 이해</li><li>방어 &amp; 관제</li><li>프로젝트 &amp; 취업</li></ol></div><button type="button" class="btn btn-line" data-pick="security">사이버 보안 과정 자세히 보기</button></article><article class="col" data-k="cloud"><span class="tag">클라우드</span><h3>서비스가 멈추지 않는 인프라를 설계합니다</h3><div><h4>이런 분께 맞아요</h4><ul><li>클라우드에 관심은 있지만 무엇부터 할지 모르는 분</li><li>자격증 외에 실제 배포 · 운영 경험이 필요한 분</li></ul></div><div><h4>배우는 순서</h4><ol><li>컨테이너 기초</li><li>자동화</li><li>운영 &amp; 모니터링</li><li>프로젝트 &amp; 취업</li></ol></div><button type="button" class="btn btn-line" data-pick="cloud">클라우드 과정 자세히 보기</button></article></div>
+    <p class="note">* 본인부담금은 개인 조건에 따라 0원 또는 최대 60만원입니다. 최근 5년 내 KDT 참여 이력이 없고 내일배움카드 잔액이 있어야 합니다.</p>
+  </div>
+</section>
+
+<section class="sec" id="benefit">
+  <div class="wrap">
+    <div class="sh"><h2>공통 참여 혜택</h2><p>세 과정 모두 동일하게 적용됩니다</p></div>
+    <div class="tiles"><div class="tile"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.5c2.6.1 4.1 1.6 4.5 4.5"/></svg></i><b>현직자 멘토링 및 기술 특강</b></div><div class="tile"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg></i><b>프로젝트 · 포트폴리오 피드백</b></div><div class="tile"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></i><b>이력서 및 취업 컨설팅</b></div><div class="tile"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M2 19h20"/></svg></i><b>실습용 클라우드 환경과 노트북 지원</b></div><div class="tile"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/></svg></i><b>우수 수료생 채용 지원 시 우대</b></div><div class="tile"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M14.8 8.8c-.6-.8-1.6-1.2-2.8-1.2-1.7 0-2.8.9-2.8 2.1 0 3 5.8 1.4 5.8 4.4 0 1.3-1.2 2.3-3 2.3-1.3 0-2.4-.5-3-1.4M12 6v1.6M12 16.4V18"/></svg></i><b>월 최대 30만원 수준 훈련장려금 지원</b></div></div>
+    <p class="note">※ 훈련장려금은 개인별 조건에 따라 차등 지급되며, 세부 자격은 상담 시 최종 확인이 필요합니다.</p>
+    <div class="strip">
+      <div><b>어떤 과정이 나에게 맞을지 고민된다면</b><span>네이버 폼 신청 후 교육 상담이 진행됩니다</span></div>
+      <a class="btn" href="https://naver.me/5QsBTPVV" target="_blank" rel="noopener" data-contact="">무료상담 신청</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec gray" id="flow">
+  <div class="wrap">
+    <div class="sh"><h2>지원 절차</h2><p>선발 과정이 있습니다</p></div>
+    <ol class="flow">
+      <li><b>지원서 작성</b><span>상담 후 온라인 작성</span></li>
+      <li><b>고용24 수강신청</b><span>내일배움카드 필요</span></li>
+      <li><b>서류 · 비대면 인터뷰</b><span>학습 의지 확인</span></li>
+      <li><b>최종 합격</b><span>개별 통보</span></li>
+    </ol>
+    <p class="note">학력 · 전공 · 자격증은 선발 기준이 아닙니다.</p>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap narrow">
+    <div class="sh"><h2>자주 묻는 질문</h2></div>
+    <details class="qa"><summary>비전공자도 수강 가능한가요?</summary><p>가능합니다. 기초 개념부터 프로젝트까지 단계적으로 진행됩니다. 다만 주 5일 풀타임 과정이라 끝까지 참여할 시간 확보가 가장 중요합니다.</p></details>
+    <details class="qa"><summary>수강료가 정말 무료인가요?</summary><p>K-디지털 트레이닝(KDT) 과정으로 수강료 대부분이 국비 지원됩니다. 개인 조건에 따라 자부담금이 없거나 최대 60만원까지 발생할 수 있으며, 상담 시 정확히 안내드립니다.</p></details>
+    <details class="qa"><summary>내일배움카드가 없는데 지원할 수 있나요?</summary><p>고용24에서 카드 발급 신청 후 지원하시면 됩니다. 지원서 작성과 카드 발급은 동시에 진행해도 됩니다.</p></details>
+    <details class="qa"><summary>녹화본으로 복습할 수 있나요?</summary><p>실시간 라이브 수업으로 진행되며 녹화본은 제공되지 않습니다. 출석도 실시간 참여 기준입니다.</p></details>
+  </div>
+</section>
+
+<section class="close gray" id="apply">
+  <div class="wrap">
+    <div class="date"><em>12.30</em> 개강</div>
+    <p>지원 자격과 본인부담 여부, 1:1로 확인해 드립니다.<br>네이버폼에 남겨주시면 담당자가 확인 후 연락드립니다.</p>
+    <div class="close-card">
+      <h3><span><span data-bind="course">생성형 AI</span> 과정</span><em>모집중</em></h3>
+      <dl class="kv">
+        <div><dt>개강</dt><dd>2026.12.30 · 약 7개월</dd></div>
+        <div><dt>수업</dt><dd>월–금 09–18시 · 온라인 실시간</dd></div>
+        <div><dt>본인부담금</dt><dd>0원 ~ 60만원<small>개인 조건에 따라 다릅니다</small></dd></div>
+      </dl>
+    </div>
+    <div class="actions">
+      <a class="btn btn-main" href="https://naver.me/5QsBTPVV" target="_blank" rel="noopener" data-contact="">교육과정 문의 · 상담 신청</a>
+      <a class="btn btn-line" href="#" data-go="compare">커리큘럼 보기</a>
+    </div>
+    <p class="note">상세 커리큘럼과 프로젝트 예시는 상담 시 자료로 안내드립니다.</p>
+    <nav class="jump jump-b" style="border:0;background:none" aria-label="섹션 바로가기">
+      <div class="wrap">
+        <a href="#overview" data-go="overview">모집개요</a>
+        <a href="#cost" data-go="cost">수강료 · 본인부담</a>
+        <a href="#compare" data-go="compare">과정 비교</a>
+        <a href="#benefit" data-go="benefit">혜택 · 취업지원</a>
+        <a href="#flow" data-go="flow">지원 절차</a>
+        <a href="#faq" data-go="faq">자주 묻는 질문</a>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>본 과정은 고용노동부 K-디지털 트레이닝(KDT) 국비지원 과정입니다.</span><span>세부 일정 및 내용은 운영 사정에 따라 변경될 수 있습니다.</span></div>
+</footer>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="bar-t"><b data-bind="course">생성형 AI</b> 과정 · 12/30 개강<span class="bx"> · 본인부담 0원~60만원</span></div>
+    <a class="btn btn-main" href="https://naver.me/5QsBTPVV" target="_blank" rel="noopener" data-contact="">무료상담 신청</a>
+  </div>
+</div>
+
+<script>
+// ===== 상담 신청 링크 =====
+var CONFIG = { naverForm: "https://naver.me/5QsBTPVV" };
+
+var TRACKS = {
+  ai: {name:"생성형 AI",
+    l1:"AI를 쓰는 사람에서", l2:"<em>만드는 사람</em>으로",
+    lead:"LLM 파인튜닝, RAG, AI Agent까지. 대기업 현직자 멘토링과 실무 프로젝트로 7개월 동안 생성형 AI 서비스 포트폴리오를 완성합니다.",
+    chips:["LLM 파인튜닝","RAG","AI Agent","LangChain"],
+    kw:"LLM + 프롬프트 엔지니어링 + RAG + AI 서비스 개발", desc:"파이썬과 생성형 AI 기초부터 오픈소스 LLM, 파인튜닝, 프롬프트 엔지니어링, RAG, 멀티모달, MLOps까지 학습합니다. AI 챗봇과 데이터 기반 AI 서비스를 직접 개발하고 포트폴리오를 완성하는 과정입니다.",
+    who:["생성형 AI 개발자로 취업하고 싶은 사람","파이썬을 배웠지만 프로젝트가 부족한 사람","AI 챗봇 · RAG · 업무 자동화 서비스를 만들고 싶은 사람","LLM 개발부터 배포까지 경험하고 싶은 사람"],
+    steps:[["LLM 기초","모델이 동작하는 원리부터 직접 다룹니다"],["나만의 모델 만들기","공개 모델을 내 데이터로 학습시키고 평가합니다"],["AI 서비스 개발","검색형 챗봇부터 AI 에이전트까지 만듭니다"],["프로젝트 & 취업","팀 프로젝트와 이력서 · 면접 준비"]]},
+  security: {name:"사이버 보안",
+    l1:"공격을 알아야", l2:"<em>지킬 수 있습니다</em>",
+    lead:"네트워크 · 클라우드 보안, 침투 테스트, 보안 관제까지. 대기업 현직자 멘토링과 실무 프로젝트로 7개월 동안 보안 포트폴리오를 완성합니다.",
+    chips:["모의해킹","취약점 진단","보안 관제","침해 대응"],
+    kw:"클라우드 보안 + 네트워크 보안 + 침해사고 대응", desc:"네트워크와 리눅스 기초부터 클라우드 보안, 취약점 진단, 모의해킹, 보안관제, 침해사고 대응까지 배우는 과정입니다. AWS·Azure 환경의 보안 구조와 멀티클라우드 보안 프로젝트도 경험할 수 있습니다.",
+    who:["정보보안 분야 취업을 준비하는 사람","보안관제 · 침해사고 대응 직무 희망자","클라우드 보안이나 모의해킹을 배우고 싶은 사람","네트워크 · 리눅스 실무 역량이 필요한 사람"],
+    steps:[["보안 기초","네트워크와 암호 기술의 기본 구조"],["공격 기술 이해","실습 환경에서 취약점 원리를 익힙니다"],["방어 & 관제","로그로 공격을 탐지하고 사고에 대응합니다"],["프로젝트 & 취업","팀 프로젝트와 이력서 · 면접 준비"]]},
+  cloud: {name:"클라우드",
+    l1:"서비스가 멈추지 않는", l2:"<em>인프라를 설계합니다</em>",
+    lead:"Docker, Kubernetes, CI/CD, 모니터링까지. 대기업 현직자 멘토링과 실무 프로젝트로 7개월 동안 클라우드 엔지니어 포트폴리오를 완성합니다.",
+    chips:["Docker","Kubernetes","CI/CD","모니터링"],
+    kw:"리눅스 · 네트워크 + AWS + Docker · Kubernetes + DevOps", desc:"리눅스 서버와 네트워크 기초부터 AWS, Azure, Cloud, Docker, Kubernetes, Terraform, CI/CD까지 배우는 과정입니다. 최종적으로 하이브리드·멀티클라우드 인프라 구축 프로젝트를 진행합니다.",
+    who:["클라우드 · 시스템 엔지니어 취업 희망자","리눅스와 네트워크를 체계적으로 배우고 싶은 사람","AWS 자격증은 있지만 실무 경험이 부족한 사람","Docker, Kubernetes, DevOps를 배우고 싶은 사람"],
+    steps:[["컨테이너 기초","어디서든 똑같이 실행되는 컨테이너 기술"],["자동화","서버 관리와 배포를 자동으로 만듭니다"],["운영 & 모니터링","트래픽을 나누고 장애를 미리 감지합니다"],["프로젝트 & 취업","팀 프로젝트와 이력서 · 면접 준비"]]}
+};
+
+// ===== 누를 수 있는 곳을 누르면 그 자리에 조명이 번짐 =====
+(function(){
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('button:not(:disabled),a,summary,label.agree');
+    if(!t) return;
+    // 과정 탭·상담 버튼은 조명을 더 크게 (click에서 처리해 탭을 바꾼 뒤의 새 색으로 번짐)
+    var big = t.matches('.seg button,[data-contact],[data-call],[data-pick],.btn-main');
+    var x = e.clientX, y = e.clientY;
+    if(!e.detail){ var r = t.getBoundingClientRect(); x = r.left + r.width/2; y = r.top + r.height/2; }
+    requestAnimationFrame(function(){
+      var g = document.createElement('span');
+      g.className = 'glow' + (big ? ' big' : '');
+      g.style.left = x + 'px'; g.style.top = y + 'px';
+      g.addEventListener('animationend', function(){ g.remove(); });
+      document.body.appendChild(g);
+    });
+  });
+})();
+
+// ===== 흐르는 키워드 =====
+var MQ = {
+  ai:["LLM","RAG","AI AGENT","FINE-TUNING","LANGCHAIN","HUGGING FACE"],
+  security:["SECURITY","SOC","SIEM","CLOUD SECURITY","INCIDENT RESPONSE","WARGAME"],
+  cloud:["DOCKER","KUBERNETES","CI/CD","GITHUB ACTIONS","GRAFANA","AWS"]
+};
+
+// ===== 실습 터미널 (예시 화면) =====
+var LAB = (function(){
+  var D = {
+    ai: {file:"lab · rag_bot.py", title:"내 문서로 답하는 챗봇을 직접 만듭니다",
+      lead:"ChatGPT를 쓰는 데서 끝나지 않고, 우리 데이터를 읽고 출처까지 달아 답하는 서비스를 만드는 과정입니다.",
+      list:[["STEP 1–2","문서를 잘게 나눠 저장","모델이 찾을 수 있게 임베딩으로 바꿉니다"],["STEP 3","질문과 가까운 문서 찾기","RAG로 근거 문서를 골라 답변에 씁니다"],["STEP 4","서비스로 완성","출처를 붙여 답하는 챗봇을 팀 프로젝트로 배포합니다"]],
+      lines:[["cmd","python rag_bot.py --docs ./국비_안내문"],["mut","[load] 문서 12개 → 문단 186개로 분할"],["mut","[embed] 벡터 저장 완료"],["ok","[ready] RAG 챗봇 실행 중"],["",""],["q","내일배움카드가 없으면 지원을 못 하나요?"],["mut","… 관련 문단 3개 검색"],["hi","답변: 고용24에서 카드 발급 신청과 지원서 작성을"],["hi","      동시에 진행할 수 있습니다."],["mut","      출처: 국비_안내문 › 자주 묻는 질문"]]},
+    security: {file:"lab · 보안 관제 대시보드", title:"로그를 읽고, 이상 징후를 잡아냅니다",
+      lead:"실습 환경에서 쌓이는 로그를 분석해 위험 신호를 찾고, 정해진 절차대로 대응하는 보안 관제 업무를 익힙니다.",
+      list:[["STEP 1","보안 기초","네트워크와 암호 기술의 기본 구조를 이해합니다"],["STEP 3","로그 분석·탐지","SIEM으로 평소와 다른 접속 패턴을 찾아냅니다"],["STEP 3–4","침해 대응","접근을 막고 대응 보고서를 작성합니다"]],
+      lines:[["cmd","soc watch --source 실습망"],["mut","[연결] 로그 수집 시작 · 서버 6대"],["ok","[정상] 09:12  사용자 로그인"],["ok","[정상] 09:13  파일 서버 접근"],["warn","[주의] 09:14  같은 계정 로그인 실패 반복"],["warn","[주의] 09:14  평소와 다른 지역에서 접속 시도"],["bad","[위험] 09:15  비정상 접근 패턴 탐지"],["hi","[대응] 해당 접속 차단 정책 적용 → 담당자 알림"],["",""],["ok","[완료] 사고 대응 보고서 생성: report_0915.md"]]},
+    cloud: {file:"lab · k8s 배포 실습", title:"트래픽이 몰려도 멈추지 않게 만듭니다",
+      lead:"코드를 올리면 자동으로 배포되고, 접속이 늘면 서버가 알아서 늘어나는 운영 환경을 직접 구성합니다.",
+      list:[["STEP 1","컨테이너로 실행","Docker로 어디서든 똑같이 돌아가게 만듭니다"],["STEP 2","자동 배포","GitHub Actions로 코드 수정이 바로 배포되게 합니다"],["STEP 3","자동 확장·감시","트래픽에 맞춰 서버를 늘리고 Grafana로 지켜봅니다"]],
+      lines:[["cmd","git push origin main"],["mut","[CI] 테스트 통과 → 이미지 빌드 완료"],["ok","[CD] 무중단 배포 완료 (web v1.4)"],["",""],["cmd","kubectl get pods"],["mut","web-7d9f   3/3   Running"],["warn","[알림] CPU 사용률 82% · 목표 60% 초과"],["hi","[확장] 서버 3대 → 8대로 자동 확장 중"],["mut","web-7d9f   8/8   Running"],["ok","[정상] 응답 시간 120ms 유지"]]}
+  };
+  var body = document.getElementById('termBody'), list = document.getElementById('labList');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cur = 'ai', run = 0, seen = false, pending = true;
+  function esc(s){ return s.replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+  function line(cls, txt){ var p = document.createElement('p'); if(cls) p.className = cls; p.innerHTML = esc(txt); body.appendChild(p); return p; }
+  function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+  function play(){
+    var id = ++run, L = D[cur].lines; body.innerHTML = ''; pending = false;
+    if(reduce){ L.forEach(function(l){ line(l[0], l[1]); }); return; }
+    var i = 0;
+    (function next(){
+      if(id !== run) return;
+      if(i >= L.length){ var c = document.createElement('span'); c.className = 'cur'; line('cmd', '').appendChild(c); return; }
+      var l = L[i++];
+      if(l[0] === 'cmd' || l[0] === 'q'){
+        var p = line(l[0], ''), k = 0, cur2 = document.createElement('span'); cur2.className = 'cur';
+        (function type(){
+          if(id !== run) return;
+          p.textContent = l[1].slice(0, ++k); p.appendChild(cur2);
+          if(k < l[1].length) setTimeout(type, 38); else { p.removeChild(cur2); setTimeout(next, 380); }
+        })();
+      } else { line(l[0], l[1]); setTimeout(next, l[1] ? 260 : 120); }
+    })();
+  }
+  function fill(){
+    var d = D[cur];
+    document.getElementById('termFile').textContent = d.file;
+    document.getElementById('labTitle').textContent = d.title;
+    document.getElementById('labLead').textContent = d.lead;
+    list.innerHTML = d.list.map(function(x){ return '<li><span class="n">' + x[0] + '</span><b>' + x[1] + '</b><span>' + x[2] + '</span></li>'; }).join('');
+    list.classList.remove('play'); void list.offsetWidth; list.classList.add('play');
+  }
+  // 화면에 보이기 전에는 마지막 장면을 미리 깔아 둠(정지 화면도 완성된 상태)
+  function still(){ body.innerHTML = ''; D[cur].lines.forEach(function(l){ line(l[0], l[1]); }); }
+  var io = window.IntersectionObserver ? new IntersectionObserver(function(es){
+    seen = es[0].isIntersecting; if(seen && pending) play();
+  }, {threshold:.35}) : null;
+  if(io) io.observe(body);
+  document.getElementById('termRe').addEventListener('click', play);
+  return { set: function(c){ cur = c; fill(); if(seen || !io){ play(); } else { pending = true; still(); } } };
+})();
+
+// ===== 첫 화면 배경 모션 (과정별) =====
+var FX = (function(){
+  var cv = document.getElementById('bgfx'), ctx = cv.getContext('2d');
+  var W = 0, H = 0, X0 = 0, track = 'ai', switchAt = 0, lastCol = -1e9, running = false, visible = true;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var C = {a:[91,87,209], p:[255,255,255]};
+  function rgb(h){
+    h = (h || '').trim();
+    if(h.charAt(0) !== '#') return null;
+    if(h.length === 4) h = '#' + h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    return [parseInt(h.substr(1,2),16), parseInt(h.substr(3,2),16), parseInt(h.substr(5,2),16)];
+  }
+  function A(a){ return 'rgba(' + C.a[0] + ',' + C.a[1] + ',' + C.a[2] + ',' + a + ')'; }
+  function P(a){ return 'rgba(' + C.p[0] + ',' + C.p[1] + ',' + C.p[2] + ',' + a + ')'; }
+  function readCol(){
+    var s = getComputedStyle(cv.parentElement);
+    C.a = rgb(s.getPropertyValue('--accent')) || C.a;
+    C.p = rgb(s.getPropertyValue('--paper')) || C.p;
+  }
+  function rnd(a, b){ return a + Math.random()*(b-a); }
+
+  // --- 생성형 AI: 신경망에 신호가 흐름 ---
+  var ai = {
+    init: function(){
+      var counts = [3,5,7,7,5,3], L = counts.length, x1 = W - 40;
+      this.nodes = []; this.layers = [];
+      for(var l = 0; l < L; l++){
+        var col = [], n = counts[l], x = X0 + 40 + (x1 - X0 - 40) * l/(L-1);
+        for(var i = 0; i < n; i++){
+          var node = {x:x, y:H*0.14 + (H*0.72)*(n === 1 ? .5 : i/(n-1)), f:0, l:l};
+          col.push(node); this.nodes.push(node);
+        }
+        this.layers.push(col);
+      }
+      this.pulses = []; this.spawn = 0;
+    },
+    draw: function(t, dt){
+      var Ls = this.layers;
+      ctx.lineWidth = 1; ctx.strokeStyle = A(.13);
+      ctx.beginPath();
+      for(var l = 0; l < Ls.length-1; l++) Ls[l].forEach(function(a){ Ls[l+1].forEach(function(b){ ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); }); });
+      ctx.stroke();
+      this.spawn -= dt;
+      if(this.spawn <= 0){
+        this.spawn = rnd(.08,.18);
+        var s = Ls[0][Math.floor(Math.random()*Ls[0].length)];
+        this.pulses.push({a:s, b:Ls[1][Math.floor(Math.random()*Ls[1].length)], u:0, sp:rnd(1.8,2.6)});
+      }
+      var keep = [];
+      for(var i = 0; i < this.pulses.length; i++){
+        var p = this.pulses[i];
+        p.u += dt * p.sp;
+        if(p.u >= 1){
+          p.b.f = 1;
+          var nl = p.b.l + 1;
+          if(nl >= Ls.length) continue;
+          p.a = p.b; p.b = Ls[nl][Math.floor(Math.random()*Ls[nl].length)]; p.u -= 1;
+        }
+        var u0 = Math.max(0, p.u - .35);
+        var x0 = p.a.x + (p.b.x-p.a.x)*u0, y0 = p.a.y + (p.b.y-p.a.y)*u0;
+        var x = p.a.x + (p.b.x-p.a.x)*p.u, y = p.a.y + (p.b.y-p.a.y)*p.u;
+        var g = ctx.createLinearGradient(x0,y0,x,y); g.addColorStop(0, A(0)); g.addColorStop(1, A(.75));
+        ctx.strokeStyle = g; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x,y); ctx.stroke();
+        ctx.fillStyle = A(.95); ctx.beginPath(); ctx.arc(x, y, 2.4, 0, 6.283); ctx.fill();
+        keep.push(p);
+      }
+      this.pulses = keep;
+      this.nodes.forEach(function(n){
+        n.f = Math.max(0, n.f - dt*2.2);
+        if(n.f > 0){ ctx.fillStyle = A(n.f*.22); ctx.beginPath(); ctx.arc(n.x, n.y, 6 + n.f*12, 0, 6.283); ctx.fill(); }
+        ctx.fillStyle = P(1); ctx.strokeStyle = A(.35 + n.f*.65); ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(n.x, n.y, 5, 0, 6.283); ctx.fill(); ctx.stroke();
+      });
+    }
+  };
+
+  // --- 사이버 보안: 레이더 스캔이 위협을 탐지 ---
+  var sec = {
+    init: function(){
+      this.cx = W > 900 ? W*0.66 : W*0.62; this.cy = H*0.46;
+      this.R = Math.hypot(Math.max(this.cx - X0, W - this.cx), H) ;
+      var gap = 26; this.dots = [];
+      for(var x = X0 + gap/2; x < W; x += gap) for(var y = gap/2; y < H; y += gap){
+        this.dots.push({x:x, y:y, ang:Math.atan2(y - this.cy, x - this.cx)});
+      }
+      this.threats = [];
+      for(var i = 0; i < 6; i++){
+        var r = rnd(.15,.42) * Math.min(W - X0, H*1.6), a = rnd(0, 6.283);
+        this.threats.push({x:this.cx + Math.cos(a)*r*1.3, y:this.cy + Math.sin(a)*r*.75, ang:0, hit:0});
+      }
+      var self = this; this.threats.forEach(function(th){ th.ang = Math.atan2(th.y - self.cy, th.x - self.cx); });
+    },
+    draw: function(t, dt){
+      var cx = this.cx, cy = this.cy, sw = (t*1.5) % 6.283, TAU = 6.283;
+      function behind(ang){ var d = (sw - ang) % TAU; return d < 0 ? d + TAU : d; }
+      this.dots.forEach(function(d){
+        var k = behind(d.ang), b = k < 2 ? 1 - k/2 : 0;
+        ctx.fillStyle = A(.16 + b*b*.75);
+        ctx.beginPath(); ctx.arc(d.x, d.y, 1.3 + b*1.3, 0, 6.283); ctx.fill();
+      });
+      ctx.strokeStyle = A(.14); ctx.lineWidth = 1;
+      var m = Math.min(W - X0, H);
+      [.22,.42,.62,.82].forEach(function(f){ ctx.beginPath(); ctx.arc(cx, cy, m*f, 0, 6.283); ctx.stroke(); });
+      ctx.beginPath(); ctx.moveTo(cx - m, cy); ctx.lineTo(cx + m, cy); ctx.moveTo(cx, cy - m); ctx.lineTo(cx, cy + m); ctx.stroke();
+      var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, this.R);
+      g.addColorStop(0, A(.32)); g.addColorStop(1, A(0));
+      ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, this.R, sw - .6, sw); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = A(.7); ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(sw)*this.R, cy + Math.sin(sw)*this.R); ctx.stroke();
+      this.threats.forEach(function(th){
+        if(behind(th.ang) < dt*1.5 + .02) th.hit = 1;
+        th.hit = Math.max(0, th.hit - dt*.45);
+        if(th.hit <= 0) return;
+        var s = 12 + (1 - th.hit)*6, L = 6;
+        ctx.strokeStyle = A(th.hit); ctx.lineWidth = 2;
+        ctx.beginPath();
+        [[-1,-1],[1,-1],[1,1],[-1,1]].forEach(function(q){
+          var x = th.x + q[0]*s, y = th.y + q[1]*s;
+          ctx.moveTo(x, y - q[1]*L); ctx.lineTo(x, y); ctx.lineTo(x - q[0]*L, y);
+        });
+        ctx.stroke();
+        ctx.fillStyle = A(th.hit); ctx.beginPath(); ctx.arc(th.x, th.y, 3, 0, 6.283); ctx.fill();
+      });
+      ctx.fillStyle = A(.9); ctx.beginPath(); ctx.arc(cx, cy, 4, 0, 6.283); ctx.fill();
+    }
+  };
+
+  // --- 클라우드: 컨테이너가 차례로 배포되는 서버 랙 ---
+  var cloud = {
+    init: function(){
+      var w = 62, h = 40, gx = 22, gy = 26;
+      var cx0 = W > 900 ? W*0.3 : 0;
+      var cols = Math.max(3, Math.floor((W - cx0 - 60) / (w + gx))), rows = Math.max(3, Math.floor((H - 80) / (h + gy)));
+      var ox = W - 30 - cols*(w+gx) + gx, oy = (H - rows*(h+gy) + gy)/2;
+      this.w = w; this.h = h; this.cells = []; this.rows = [];
+      for(var r = 0; r < rows; r++){
+        var row = [];
+        for(var c = 0; c < cols; c++){
+          var cell = {x:ox + c*(w+gx), y:oy + r*(h+gy), lv:Math.random() < .35 ? 1 : 0, tg:0};
+          cell.tg = cell.lv; row.push(cell); this.cells.push(cell);
+        }
+        this.rows.push(row);
+      }
+      this.tick = 0;
+    },
+    draw: function(t, dt){
+      var w = this.w, h = this.h, cells = this.cells;
+      this.tick -= dt;
+      if(this.tick <= 0){
+        this.tick = rnd(.15,.3);
+        var c = cells[Math.floor(Math.random()*cells.length)];
+        var on = cells.filter(function(x){ return x.tg; }).length / cells.length;
+        c.tg = on > .6 ? 0 : (c.tg ? (Math.random() < .3 ? 0 : 1) : 1);
+      }
+      ctx.lineWidth = 1.5;
+      this.rows.forEach(function(row){
+        var y = row[0].y + h/2, xa = row[0].x - 40, xb = row[row.length-1].x + w;
+        ctx.setLineDash([]); ctx.strokeStyle = A(.12);
+        ctx.beginPath(); ctx.moveTo(xa, y); ctx.lineTo(xb, y); ctx.stroke();
+        ctx.setLineDash([5,11]); ctx.lineDashOffset = -t*55; ctx.strokeStyle = A(.45);
+        ctx.beginPath(); ctx.moveTo(xa, y); ctx.lineTo(xb, y); ctx.stroke();
+      });
+      ctx.setLineDash([]);
+      cells.forEach(function(c){
+        c.lv += (c.tg - c.lv) * Math.min(1, dt*5);
+        ctx.fillStyle = P(.6); ctx.strokeStyle = A(.28 + c.lv*.5); ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.roundRect ? ctx.roundRect(c.x, c.y, w, h, 7) : ctx.rect(c.x, c.y, w, h); ctx.fill(); ctx.stroke();
+        if(c.lv > .01){
+          ctx.save(); ctx.beginPath(); ctx.roundRect ? ctx.roundRect(c.x, c.y, w, h, 7) : ctx.rect(c.x, c.y, w, h); ctx.clip();
+          ctx.fillStyle = A(.2); ctx.fillRect(c.x, c.y + h*(1 - c.lv), w, h*c.lv);
+          ctx.restore();
+        }
+        ctx.fillStyle = A(.2 + c.lv*.7);
+        for(var i = 0; i < 3; i++){ ctx.fillRect(c.x + 10, c.y + 10 + i*8, 22 * (i === 1 ? .7 : 1), 3); }
+        ctx.beginPath(); ctx.arc(c.x + w - 11, c.y + 11, 3.5, 0, 6.283); ctx.fill();
+      });
+    }
+  };
+
+  var S = {ai:ai, security:sec, cloud:cloud};
+  function size(){
+    var r = cv.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = r.width; H = r.height; X0 = W > 900 ? W*0.08 : 0;
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ai.init(); sec.init(); cloud.init();
+    if(!running) paint(performance.now(), 0);
+  }
+  var prev = 0;
+  function paint(now, dt){
+    if(now - lastCol > 400){ readCol(); lastCol = now; }
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalAlpha = Math.min(1, (now - switchAt)/450);
+    S[track].draw(now/1000, dt);
+    ctx.globalAlpha = 1;
+  }
+  function loop(now){
+    if(!running) return;
+    var dt = Math.min(.05, (now - prev)/1000 || 0); prev = now;
+    paint(now, dt);
+    requestAnimationFrame(loop);
+  }
+  function go(){
+    var should = visible && !document.hidden && !reduce;
+    if(should && !running){ running = true; prev = performance.now(); requestAnimationFrame(loop); }
+    if(!should) running = false;
+  }
+  if(window.ResizeObserver) new ResizeObserver(size).observe(cv); else window.addEventListener('resize', size);
+  if(window.IntersectionObserver) new IntersectionObserver(function(es){ visible = es[0].isIntersecting; go(); }).observe(cv);
+  document.addEventListener('visibilitychange', go);
+  size();
+  return {
+    set: function(t){
+      track = t; switchAt = reduce ? -1e9 : performance.now(); readCol(); lastCol = performance.now();
+      if(!running) paint(performance.now(), 0);
+      go();
+    }
+  };
+})();
+
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var hero = document.querySelector('.hero');
+  var cur = 'ai';
+
+  // ---------- 다크모드 ----------
+  var root = document.documentElement;
+  function isDark(){
+    var t = root.getAttribute('data-theme');
+    if(t) return t === 'dark';
+    return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  $('themeBtn').addEventListener('click', function(){
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('kdt-theme', next); }catch(e){}
+  });
+
+  // ---------- 과정 전환 ----------
+  function setTrack(c, scroll){
+    var t = TRACKS[c]; if(!t) return;
+    cur = c;
+    document.body.dataset.c = c;
+    $('hl').innerHTML = '<span class="ln"><span>' + t.l1 + '</span></span><span class="ln"><span>' + t.l2 + '</span></span>';
+    $('lead').textContent = t.lead;
+    $('chips').innerHTML = t.chips.map(function(x){ return '<span>' + x + '</span>'; }).join('');
+    $('cname').textContent = t.name + ' 과정';
+    $('steps').innerHTML = '<div class="rail"><b></b></div>' + t.steps.map(function(s, i){
+      return '<li class="step"><i class="d"></i><small>STEP ' + (i+1) + '</small><b>' + s[0] + '</b><p>' + s[1] + '</p></li>';
+    }).join('');
+    document.querySelectorAll('[data-bind="course"]').forEach(function(el){ el.textContent = t.name; });
+    document.querySelectorAll('.seg button').forEach(function(b){ b.setAttribute('aria-selected', String(b.dataset.c === c)); });
+    hero.classList.remove('play'); void hero.offsetWidth; hero.classList.add('play');
+    FX.set(c);
+    var kw = MQ[c].map(function(w){ return '<span>' + w + '</span>'; }).join('');
+    $('mq').innerHTML = kw + kw;
+    LAB.set(c);
+    if(scroll) hero.scrollIntoView({behavior:'smooth'});
+  }
+
+  // 첫 화면 위에 있는 동안 상단 메뉴도 어둡게
+  var topBar = document.querySelector('.top');
+  function onHero(){ topBar.classList.toggle('on-hero', window.scrollY < hero.offsetHeight - topBar.offsetHeight); }
+  window.addEventListener('scroll', onHero, {passive:true});
+  window.addEventListener('resize', onHero);
+  onHero();
+
+  $('cmp').innerHTML = Object.keys(TRACKS).map(function(k){
+    var t = TRACKS[k];
+    return '<article class="col" data-k="' + k + '">' +
+      '<span class="tag">' + t.name + '</span>' +
+      '<h3>' + t.l1 + ' ' + t.l2.replace(/<\/?em>/g, '') + '</h3>' +
+      '<p class="kw">' + t.kw + '</p><p class="desc">' + t.desc + '</p>' +
+      '<div><h4>이런 분께 맞아요</h4><ul>' + t.who.map(function(w){ return '<li>' + w + '</li>'; }).join('') + '</ul></div>' +
+      '<div><h4>배우는 순서</h4><ol>' + t.steps.map(function(s){ return '<li>' + s[0] + '</li>'; }).join('') + '</ol></div>' +
+      '<button type="button" class="btn btn-line" data-pick="' + k + '">' + t.name + ' 과정 자세히 보기</button>' +
+    '</article>';
+  }).join('');
+
+  document.querySelectorAll('.seg button').forEach(function(b){
+    b.addEventListener('click', function(){ if(b.dataset.c !== cur) setTrack(b.dataset.c); });
+  });
+  document.addEventListener('click', function(e){
+    var p = e.target.closest('[data-pick]');
+    if(p){ setTrack(p.dataset.pick, true); return; }
+    var g = e.target.closest('[data-go]');
+    if(!g) return;
+    e.preventDefault();
+    if(g.dataset.go === 'top') return window.scrollTo({top:0, behavior:'smooth'});
+    var el = $(g.dataset.go); if(el) el.scrollIntoView({behavior:'smooth'});
+  });
+
+
+  var h = (location.hash || '').replace('#', '');
+  setTrack(TRACKS[h] ? h : 'ai');
+})();
+</script>
+
+</body></html>
