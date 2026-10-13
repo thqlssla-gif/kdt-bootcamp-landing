@@ -1068,3 +1068,10 @@ document.querySelectorAll('.seg button, .tab-btn, [data-track]').forEach(functio
     if (tracks[index]) setTrack(tracks[index], true);
   });
 });
+// 탭 버튼 클릭 시 과정 변경 연결
+document.querySelectorAll('.seg button, .tab-btn, [data-track]').forEach(function(btn, index) {
+  btn.addEventListener('click', function() {
+    var tracks = ['ai', 'security', 'cloud'];
+    if (tracks[index]) setTrack(tracks[index], true);
+  });
+});
