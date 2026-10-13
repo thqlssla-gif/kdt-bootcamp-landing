@@ -1060,3 +1060,11 @@ var FX = (function(){
     }).join('');
     document.querySelectorAll('[data-bind="course"]').forEach(function(el){ el.textContent = t.name; });
     document.querySelectorAll('.seg 
+
+                              // 탭 버튼 클릭 시 해당 트랙으로 변경
+document.querySelectorAll('.seg button, .tab-btn, [data-track]').forEach(function(btn, index) {
+  btn.addEventListener('click', function() {
+    var tracks = ['ai', 'security', 'cloud'];
+    if (tracks[index]) setTrack(tracks[index], true);
+  });
+});
